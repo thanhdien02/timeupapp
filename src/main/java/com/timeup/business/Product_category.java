@@ -21,8 +21,7 @@ public class Product_category implements Serializable{
 	
 	private String nameCategory;
 	
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	
+	@OneToMany(mappedBy = "pd_category",fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<Product> products;
 
 	public Long getPd_cateId() {

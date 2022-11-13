@@ -10,14 +10,15 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
-
-import com.timeup.business.Product_category;
 
 @Entity
+@Table(name = "products")
 public class Product implements Serializable{
 	
 	@Id
@@ -27,18 +28,23 @@ public class Product implements Serializable{
 	@Column(name = "nameProduct", columnDefinition = "VARCHAR(500) NOT NULL")
 	private String nameProduct;
 	
-	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@ManyToOne
+	@JoinColumn(name = "pd_cateId")
 	private Product_category pd_category;
 	
 	private Long price;
 	
-	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToOne
+	@JoinColumn(name = "pd_specificationId")
 	private Product_specification pd_specification;
 	
 	private Long number_remain;
 	
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "product", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<Product_image> products_image;
+	
+	
+	
 	
 	public Long getProductId() {
 		return productId;

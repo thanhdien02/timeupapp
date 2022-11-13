@@ -1,5 +1,12 @@
 package com.timeup.dao;
 
-public class Product_specificationDAO {
+import com.timeup.business.Product_specification;
+
+public class Product_specificationDAO extends AbstractDAO<Product_specification> {
+	
+	public Product_specificationDAO()
+	{
+		super(Product_specification.class);
+	}
 
 }

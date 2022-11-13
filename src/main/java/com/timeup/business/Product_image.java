@@ -9,24 +9,28 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
 public class Product_image implements Serializable{
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long pdImgId;
+    private Long pd_imageId;
 	
-	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@ManyToOne
+	@JoinColumn(name = "productId")
 	private Product product;
-	@Column(unique=true, nullable = false)
 	
+	
+	@Column(nullable = false)
 	private String image_path;
+	
 	public Long getPdImgId() {
-		return pdImgId;
+		return pd_imageId;
 	}
 	public void setPdImgId(Long pdImgId) {
-		this.pdImgId = pdImgId;
+		this.pd_imageId = pdImgId;
 	}
 	public Product getProduct() {
 		return product;

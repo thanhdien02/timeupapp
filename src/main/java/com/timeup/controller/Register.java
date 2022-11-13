@@ -61,20 +61,22 @@ private static final long serialVersionUID = 1L;
 		// Kiểm tra tên tài khoản đăng nhập có trong db chưa
 
 		
-		List<User> users =  UserDAO.selectUsers();
-		for (User us : users) {
-			System.out.print(us.getNameLogin());
-			if(us.getNameLogin().equals(username))
-			{
-				String kiemtra = "sai";
-				request.setAttribute("kiemtra", kiemtra);
-				url = "/register.jsp"; 
-				getServletContext()
-		        .getRequestDispatcher(url)
-		        .forward(request, response); // Tro lai trang dang ky va keu nhap lai
-				return;
-			}
-		}
+		
+//		List<User> users =  UserDAO.selectUsers();
+//		//if(users)
+//		for (User us : users) {
+//			System.out.print(us.getNameLogin());
+//			if(us.getNameLogin().equals(username))
+//			{
+//				String kiemtra = "sai";
+//				request.setAttribute("kiemtra", kiemtra);
+//				url = "/register.jsp"; 
+//				getServletContext()
+//		        .getRequestDispatcher(url)
+//		        .forward(request, response); // Tro lai trang dang ky va keu nhap lai
+//				return;
+//			}
+//		}
 //		
 		UserDAO.insert(user);
 		url = "/login.jsp";
