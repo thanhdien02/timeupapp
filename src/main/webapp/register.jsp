@@ -10,7 +10,7 @@
 
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,600,0,0" />
-    <link rel="shortcut icon" href="./favicon.png" type="image/x-icon">
+  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
         <link rel="stylesheet" href="css/cssregis/register_style.css" />
     <title>Register SmartWatch</title>
 </head>
@@ -47,7 +47,7 @@
                         <input type="password" name="password" required>
                     </div>
                     <div class="form-item">
-                        <label for="passwordForm">Confirm Password</label>
+                        <label >Confirm Password</label>
                         <input type="password" name="passwordconfirm" required>
                     </div>
                     

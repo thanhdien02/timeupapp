@@ -7,18 +7,30 @@
   <persistence-unit name="timeupWeb" transaction-type="RESOURCE_LOCAL">
     <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
     <class>com.timeup.business.User</class>
+    <class>com.timeup.business.Product</class>
+
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
-    <properties>
+    <!-- <properties>
       <property name="javax.persistence.jdbc.url" 
-                value="jdbc:mysql://localhost:3306/new"/>
+                value="jdbc:postgresql://ec2-54-163-34-107.compute-1.amazonaws.com:5432/db751bf1h6biek"/>
       <property name="javax.persistence.jdbc.user" 
-                value="root"/>
+                value="hwcutccpwiroty"/>
       <property name="javax.persistence.jdbc.password" 
-                value="220902@ntd"/>
+                value="ec53111a1b8fae714bf511e3d7c193ce2108d2ef7af650866d037ca1c61b624c"/>
       <property name="javax.persistence.jdbc.driver" 
-                value="com.mysql.jdbc.Driver"/>
+      			value="org.postgresql.Driver" />
       <property name="javax.persistence.schema-generation.database.action" 
                 value="create"/>
-    </properties>
+    </properties> -->
+    
+    <properties>
+			<!-- Configuring The Database Connection Details -->
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/new" />
+			<property name="javax.persistence.jdbc.user" value="root" />
+			<property name="javax.persistence.jdbc.password" value="220902@ntd" />
+			<property name="javax.persistence.schema-generation.database.action" 
+                value="create"/>			
+	</properties>
   </persistence-unit>
 </persistence>

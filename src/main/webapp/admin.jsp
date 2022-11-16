@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Responsive Admin Dashboard | Korsat X Parmaga</title>
     <!-- ======= Styles ====== -->
-    <link rel="shortcut icon" href=".imgs/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="assets-admin/css/style1.css">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
 </head>
 
 <body>
@@ -21,7 +21,7 @@
                         <span class="icon">
                             <ion-icon name="logo-apple"></ion-icon>
                         </span>
-                        <span class="title">Brand Name</span>
+                        <span class="title">Brand Name 111</span>
                     </a>
                 </li>
 
@@ -30,6 +30,7 @@
                         <span class="icon">
                             <ion-icon name="home-outline"></ion-icon>
                         </span>
+                         <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
                         <span class="title">Dashboard</span>
                     </a>
                 </li>
@@ -114,7 +115,7 @@
                 <div class="card">
                     <div>
                         <div class="numbers">1,504</div>
-                        <div class="cardName">Daily Views</div>
+                        <div class="cardName">Daily</div>
                     </div>
 
                     <div class="iconBx">

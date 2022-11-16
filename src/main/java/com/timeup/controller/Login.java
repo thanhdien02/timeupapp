@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.timeup.business.Product;
 import com.timeup.business.User;
+import com.timeup.dao.ProductDAO;
 import com.timeup.dao.UserDAO;
 
 /**
@@ -49,7 +51,20 @@ public class Login extends HttpServlet {
 		for (User user : users) {
 			if(user.getNameLogin().equals(username) && user.getPassword().equals(password))
 			{
-				url = "/index.html";
+				
+				// Nếu thành công load product lên trang home của nó. 
+				// Đăng nhập bình thường nó cũng load rồi
+				
+				// Thiết kế trang dashboarh của nó
+				// Hoàn thành cái product này cho xong của nó luôn 
+				// Phong cách code riêng của mỗi người, lấy APi của nó như thế nào
+				// Lấy danh sách của product. Sau đó cho nó load ra trang của home đưa các sản phẩm của nó ra bên ngoài đó 
+				// Thêm sản phẩm, thông tin.
+				// Cái này có chức năng là.Khi nhắn vào bên trong đó nó sẽ hiện ra như thế này nè hiểu chưa nào
+				
+				
+				
+				url = "/admin.jsp";
 				
 				getServletContext()
 		        .getRequestDispatcher(url)

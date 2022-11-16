@@ -10,6 +10,7 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,600,0,0" />
     <link rel="stylesheet" href="css/cssregis/style.css" />
+      <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
     <title>Login SmartWatch</title>
 </head>
 
@@ -18,7 +19,7 @@
     <div class="container">
         <div class="login-left">
             <div class="login-header">
-                <h1>Welcome to Store SmartWatch</h1>
+                <h1>Welcome to Store SmartWatch 1112222</h1>
                 <p>Please login to use the Application</p>
             </div>
             <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -29,7 +30,7 @@
             <form class="login-form" autocomplete="off" action="Login" method="post">
                 <div class="login-form-content">
                     <div class="form-item">
-                        <label for="emailForm">Enter User</label>
+                        <label for="emailForm">Enter User xin chao 222 <c:out value="${iditem}"></c:out></label>
                         <input type="text" id="emailForm"  name ="username" required>
                     </div>
                     <div class="form-item">

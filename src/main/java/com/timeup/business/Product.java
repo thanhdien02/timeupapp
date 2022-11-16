@@ -42,10 +42,7 @@ public class Product implements Serializable{
 	
 	@OneToMany(mappedBy = "product", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<Product_image> products_image;
-	
-	
-	
-	
+
 	public Long getProductId() {
 		return productId;
 	}
