@@ -38,10 +38,7 @@ public class ProductAdmin extends HttpServlet {
 		String action = "";
 		action =request.getParameter("action");
 			
-//		if(action.equals(null))
-//		{
-//			//request.setAttribute("new", "1123");
-//		}
+
 		
 		if(action.equals("load"))
 		{
@@ -97,9 +94,11 @@ public class ProductAdmin extends HttpServlet {
 			
 			product.setPd_specification(pdspeci);
 			
+			request.setAttribute("productadd", product);
+			
 			
 			productDAO.insert(product);
-			url = "/login.jsp";
+			url = "/admin_product_image.jsp";
 		
 		}
 //		

@@ -67,7 +67,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav">
               <li class="nav-item active">
-                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="index.jsp">Home <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="watches.html"> Watches </a>
@@ -224,6 +224,7 @@
             </a>
           </div>
         </div>
+        
         <div class="col-sm-6 col-xl-3">
           <div class="box">
             <a href="">
@@ -249,12 +250,54 @@
             </a>
           </div>
         </div>
+        
+        <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+        <c:forEach var="item" items="${products}">
+			<div class="col-sm-6 col-xl-3">
+	          <div class="box">
+	            <a href="">
+	              <div class="img-box">
+	                <img src="${item.products_image[0].image_path}" alt="">
+	              </div>
+	              <div class="detail-box">
+	                <h6>
+	                  ${item.nameProduct}
+	                </h6>
+	                <h6>
+	                  Price:
+	                  <span>
+	                    ${item.price}
+	                  </span>
+	                </h6>
+	              </div>
+	              <div class="new">
+	                <span>
+	                  New
+	                </span>
+	              </div>
+	            </a>
+	          </div>
+	        </div>		 
+		</c:forEach>
+        
+        
+        
+        
+        
+        
+        
+        
+        
       </div>
-      <div class="btn-box">
-        <a href="">
-          View All
-        </a>
-      </div>
+      <form action="HomeServlet" method="post">
+      
+	      <div class="btn-box">
+	      	
+	      	<input type="submit" value="View All 1">
+	        
+	      </div>
+      </form>
+      
     </div>
   </section>
 
@@ -519,6 +562,7 @@
     </div>
   </section>
   <!-- end client section -->
+
 
   <!-- footer section -->
   <footer class="footer_section">
