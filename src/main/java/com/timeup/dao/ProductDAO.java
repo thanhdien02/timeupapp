@@ -53,4 +53,19 @@ public class ProductDAO  extends AbstractDAO<Product> {
             em.close();
         }
     }
+    public static Product selectById(Long productId) {
+        EntityManager em = DBUtil.getEmFactory();
+        String qString = "SELECT u FROM Product u " +
+                "WHERE u.productId = :productId";
+        TypedQuery<Product> q = em.createQuery(qString, Product.class);
+        q.setParameter("productId", productId);
+        try {
+        	Product product = q.getSingleResult();
+            return product;
+        } catch (NoResultException e) {
+            return null;
+        } finally {
+            em.close();
+        }
+    }
 }
