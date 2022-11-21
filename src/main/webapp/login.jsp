@@ -19,8 +19,8 @@
     <div class="container">
         <div class="login-left">
             <div class="login-header">
-                <h1>Welcome to Store SmartWatch 1112222</h1>
-                <p>Please login to use the Application</p>
+                <h1>Chào mừng đến trang đăng nhập</h1>
+                <p>Hãy nhập thông tin để đăng nhập</p>
             </div>
             <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     
@@ -30,23 +30,23 @@
             <form class="login-form" autocomplete="off" action="Login" method="post">
                 <div class="login-form-content">
                     <div class="form-item">
-                        <label for="emailForm">Enter User xin chao 222 <c:out value="${iditem}"></c:out></label>
+                        <label for="emailForm">Tài khoản<c:out value="${iditem}"></c:out></label>
                         <input type="text" id="emailForm"  value="${username }" name ="username" required>
                     </div>
                     <div class="form-item">
-                        <label for="passwordForm">Enter Password</label>
+                        <label for="passwordForm">Mật khẩu</label>
                         <input type="password" id="passwordForm"  value="${password }" name ="password" required>
                     </div>
                     <div class="remember-regis">
                         <div class="checkbox">
                             <input type="checkbox" id="rememberMeCheckbox" checked>
-                            <label class="checkboxLabel" for="rememberMeCheckbox">Remember me</label>
+                            <label class="checkboxLabel" for="rememberMeCheckbox">Nhớ mật khẩu</label>
                         </div>
                         <div class="regis">
-                        	<a href="./register.jsp">Register Account</a>
+                        	<a href="./register.jsp">Đăng ký tài khoản</a>
                         </div>
                     </div>
-                    <button type="submit">Sign In</button>
+                    <button type="submit">Đăng nhập</button>
                 </div>
                 <div class="login-form-footer">
                     <a href="#">

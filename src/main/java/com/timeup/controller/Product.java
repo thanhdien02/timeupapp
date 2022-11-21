@@ -23,27 +23,17 @@ import com.timeup.dao.Product_categoryDAO;
 public class Product extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doPost(request, response);
+		String url = "/CartServlet";
+
+		getServletContext()
+        .getRequestDispatcher(url)
+        .forward(request, response); // Chuyen trang 
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
-		
-		String url = "/admin.jsp";
-		try {
-			String pdid = request.getParameter("id");
+		String url = "/CartServlet";
 
-			Long id = Long.parseLong(pdid);
-			
-
-			
-		}catch (Exception e) {
-			// TODO: handle exception
-		}
-		
-		
-		
-
-		getServletContext()
+		getServletContext()	
         .getRequestDispatcher(url)
         .forward(request, response); // Chuyen trang 
 	}

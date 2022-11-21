@@ -36,60 +36,51 @@
 <body class="sub_page">
 
   <div class="hero_area">
-
     <!-- header section strats -->
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+
     <!-- Header -->
     <jsp:include page="header.jsp" /> 
     <!-- end header section -->
   </div>
 
-  <!-- contact section -->
+  <!-- about section -->
 
-  <section class="contact_section layout_padding">
-    <div class="container">
+  <section class="about_section layout_padding">
+    <div class="container  ">
       <div class="row">
-        <div class="col-md-6">
-          <div class="form_container">
-            <div class="heading_container">
-              <h2>
-                Contact Us
-              </h2>
-            </div>
-            <form action="">
-              <div>
-                <input type="text" placeholder="Full Name " />
-              </div>
-              <div>
-                <input type="email" placeholder="Email" />
-              </div>
-              <div>
-                <input type="text" placeholder="Phone number" />
-              </div>
-              <div>
-                <input type="text" class="message-box" placeholder="Message" />
-              </div>
-              <div class="d-flex ">
-                <button>
-                  SEND
-                </button>
-              </div>
-            </form>
+        <div class="col-md-6 col-lg-5 ">
+          <div class="img-box">
+            <img src="images/about-img.png" alt="">
           </div>
         </div>
-        <div class="col-md-6">
-          <div class="img-box">
-            <img src="images/contact-img.jpg" alt="">
+        <div class="col-md-6 col-lg-7">
+          <div class="detail-box">
+            <div class="heading_container">
+              <h2>
+                About Us
+              </h2>
+            </div>
+            <p>
+              There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
+              in some form, by injected humour, or randomised words which don't look even slightly believable. If you
+              are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in
+              the middle of text. All
+            </p>
+            <a href="">
+              Read More
+            </a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- end contact section -->
+  <!-- end about section -->
 
   <!-- footer section -->
-  <jsp:include page="footer.jsp" /> 
+    <jsp:include page="footer.jsp" /> 
   <!-- footer section -->
 
   <!-- jQery -->

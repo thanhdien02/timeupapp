@@ -24,7 +24,7 @@ public class ProductAdmin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		request.setCharacterEncoding("UTF-8");
 		String url = "/admin.jsp";
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		getServletContext()
@@ -33,6 +33,7 @@ public class ProductAdmin extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
 		String url = "/admin.jsp";
 		
 		String action = "";

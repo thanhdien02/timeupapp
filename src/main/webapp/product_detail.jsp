@@ -50,10 +50,7 @@ https://templatemo.com/tm-559-zay-shop
             <div class="row">
             
             
-            
-            
-            
-            
+        
             
                 <div class="col-lg-5 mt-5">
                     <div class="card mb-3">
@@ -205,6 +202,9 @@ https://templatemo.com/tm-559-zay-shop
 
                            
                                 <input type="hidden" name="product-title" value="Activewear">
+                                
+                            <form action="CartServlet" method="post">
+                            
                                 <div class="row">
                                     <div class="col-auto">
                                         <ul class="list-inline pb-3">
@@ -212,13 +212,16 @@ https://templatemo.com/tm-559-zay-shop
                                                 Số lượng
                                                 <input type="hidden" name="product-quanity" id="product-quanity" value="1">
                                             </li>
-                                            <li class="list-inline-item"><span class="btn btn-success" id="btn-minus">-</span></li>
-                                            <li class="list-inline-item"><span class="badge bg-secondary" id="var-value">1</span></li>
-                                            <li class="list-inline-item"><span class="btn btn-success" id="btn-plus">+</span></li>
+                                            
+                                            <li class="list-inline-item">
+                                            
+                                            
+                                           <input type="number" name="quantity" value="1" >
+                                            
                                         </ul>
                                     </div>
                                 </div>
-                            <form action="CartServlet" method="post">
+                            
                                 <div class="row pb-3">
                                     <div class="col d-grid">
                                         <button type="submit" class="btn btn-success btn-lg" name="submit" value="buy">Mua</button>

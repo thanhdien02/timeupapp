@@ -21,6 +21,7 @@ public class ProductCategory extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
 		// TODO Auto-generated method stub
 		String url = "/admin_product_category.jsp";
 		Product_categoryDAO pdcateDAO = new Product_categoryDAO();
@@ -33,6 +34,8 @@ public class ProductCategory extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		request.setCharacterEncoding("UTF-8");
 		String url = "/admin_product_category.jsp";
 		
 		// Lấy cái sự kiện của nó xem nò làm gì và điều chỉnh nó sao cho phù hợp nhất.
@@ -43,7 +46,11 @@ public class ProductCategory extends HttpServlet {
 		
 		List<Product_category> product_categorys = Product_categoryDAO.selectProducts_categorys();
 		
-		request.setAttribute("product_categorys", product_categorys);
+		if(product_categorys != null)
+		{
+			request.setAttribute("product_categorys", product_categorys);
+		}
+		
 		// Thêm kiểm tra điều kiện là nó không được trùng tê
 		if(action.equals("add"))
 		{
@@ -64,13 +71,13 @@ public class ProductCategory extends HttpServlet {
 			} 
 			if(test == 0) // Nếu không có trong kho sẽ thêm vào bên trong đó
 			{
-				
 				pdcateDAO.insert(pdcate);
 				List<Product_category> product_categorys1 = Product_categoryDAO.selectProducts_categorys();
 				
 				request.setAttribute("product_categorys", product_categorys1);
 			}
 		}
+		
 		
 		// Xóa 1 loại sản phẩm
 		if(action.equals("delete"))

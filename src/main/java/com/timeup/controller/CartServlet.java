@@ -11,6 +11,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.text.Document;
 
 import org.apache.tomcat.util.http.ServerCookie;
 
@@ -57,7 +58,7 @@ public class CartServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		request.setCharacterEncoding("UTF-8");
 		String url = "/admin.jsp";
 		
 
@@ -83,21 +84,56 @@ public class CartServlet extends HttpServlet {
 	        ID.setPath("/");                      // allow entire app to access it
 	        response.addCookie(ID);
 	        //doGet(request, response);
-	        url = "/cart.jsp";
-	        getServletContext()
+	        
+	        
+	        //
+	        
+			List<Product> products = new ArrayList<>();
+			
+			// Load lại trang
+			if(!idnew.equals(""))
+			{
+				
+				// Xóa dấu phẩy cuối chuỗi id
+				String idl = removeLastChar(idnew);
+				
+				String listid[] = idnew.split("@");
+				for (String string : listid) {
+					
+					// Tìm sản phẩm qua id
+					Long longid = Long.parseLong(string);
+					Product product = ProductDAO.selectById(longid);
+					products.add(product);
+				}
+				request.setAttribute("products", products);
+			}
+			url = "/cart.jsp";
+			getServletContext()
 	        .getRequestDispatcher(url)
-	        .forward(request, response);
+	        .forward(request, response);	
+			return;
+	        //
 		}
 		
-		
+	
 		String pdid = request.getParameter("id");
 		
 		Long idR = Long.parseLong(pdid);
 		
 		url = "/cart.jsp";
 		request.setAttribute("id", idR);
+		
 		if(str_id == "")
 		{
+			
+			String soluong = request.getParameter("var-value");
+	        
+	        Cookie sl = new Cookie(pdid, soluong);
+
+	        sl.setMaxAge(60 * 60 * 24 * 365 * 3); // set age to 3 years
+	        sl.setPath("/");                      // allow entire app to access it
+	        response.addCookie(sl);
+			
 			// Chưa khởi tạo
 			pdid += "@";
 	        Cookie ID = new Cookie("id", pdid);
@@ -115,6 +151,15 @@ public class CartServlet extends HttpServlet {
 				if(cookie.getName().equals("id"))
 				{
 					String id = cookie.getValue();
+					
+					if(id.contains(pdid)) // Kiểm tra giỏ hàng đã có sản phẩm này hay chưa.
+					{
+						// Nếu đã có thông báo là sản phẩm đã có trong giỏ hàng rồi.
+	
+						url = "/ProductServlet";
+						break;
+					}
+					
 					id += pdid+"@";
 					
 					Cookie ID = new Cookie("id", id);
@@ -122,6 +167,14 @@ public class CartServlet extends HttpServlet {
 			        ID.setMaxAge(60 * 60 * 24 * 365 * 3); // set age to 3 years
 			        ID.setPath("/");                      // allow entire app to access it
 			        response.addCookie(ID);
+			        
+			        String soluong = request.getParameter("quantity");
+			        Cookie sl = new Cookie(pdid, soluong);
+
+			        sl.setMaxAge(60 * 60 * 24 * 365 * 3); // set age to 3 years
+			        sl.setPath("/");                      // allow entire app to access it
+			        response.addCookie(sl);
+			        
 					//cookie.setValue(id);
 				}
 			}

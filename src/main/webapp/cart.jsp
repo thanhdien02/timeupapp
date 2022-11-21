@@ -120,9 +120,12 @@
               <div class="col-md-6 mb-3 mb-md-0">
                 <button class="btn btn-primary btn-sm btn-block">Update Cart</button>
               </div>
-              <div class="col-md-6">
-                <button class="btn btn-outline-primary btn-sm btn-block">Continue Shopping</button>
-              </div>
+	              <div class="col-md-6">
+		              <a href="./HomeServlet">
+			              	<button type="submit" class="btn btn-outline-primary btn-sm btn-block">Continue Shopping</button>
+		              </a>
+	              </div>
+              
             </div>
             <div class="row">
               <div class="col-md-12">
@@ -163,6 +166,7 @@
                 </div>
 
                 <div class="row">
+                
                   <div class="col-md-12">
                     <button class="btn btn-primary btn-lg py-3 btn-block" onclick="window.location='checkout.html'">Proceed To Checkout</button>
                   </div>

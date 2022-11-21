@@ -12,7 +12,7 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,600,0,0" />
   <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
         <link rel="stylesheet" href="css/cssregis/register_style.css" />
-    <title>Register SmartWatch</title>
+    <title>Đăng ký tài khoản</title>
 </head>
 
 <body>
@@ -20,8 +20,8 @@
     <div class="container">
         <div class="login-left">
             <div class="login-header">
-                <h1>Welcome to page Register</h1>
-                <p>Please fill in the information</p>
+                <h1>Chào mừng đến trang đăng ký</h1>
+                <p>Hãy điền vào những thông tin bên dưới</p>
             </div>
             <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 		    <c:if test="${check == 'sai'}">
@@ -35,23 +35,23 @@
 
                 <div class="login-form-content">
                     <div class="form-item">
-                        <label for="emailForm">Enter User Name</label>
+                        <label for="emailForm">Tên đăng nhập</label>
                         <input type="text" id="emailForm" name="username" required>
                     </div>
                     <div class="form-item">
-                        <label for="emailForm">Enter Email</label>
+                        <label for="emailForm">Địa chỉ Email</label>
                         <input type="email" id="emailForm" name="email" required>
                     </div>
                     <div class="form-item">
-                        <label for="emailForm">Enter Password</label>
+                        <label for="emailForm">Mật khẩu</label>
                         <input type="password" name="password" required>
                     </div>
                     <div class="form-item">
-                        <label >Confirm Password</label>
+                        <label >Xác nhận mật khẩu</label>
                         <input type="password" name="passwordconfirm" required>
                     </div>
                     
-                    <input type="submit" value="Register" class="sbmit">
+                    <input type="submit" value="Đăng ký" class="sbmit">
                 </div>
             </form>
         </div>

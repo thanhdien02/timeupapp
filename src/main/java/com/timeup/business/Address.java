@@ -11,7 +11,6 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "address")
 public class Address implements Serializable{
 	
 	@Id
@@ -22,8 +21,61 @@ public class Address implements Serializable{
 	@JoinColumn(name = "productId")
 	private User user;
 	
+	public Long getAddress_id() {
+		return address_id;
+	}
+
+	public void setAddress_id(Long address_id) {
+		this.address_id = address_id;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public String getCiTy() {
+		return ciTy;
+	}
+
+	public void setCiTy(String ciTy) {
+		this.ciTy = ciTy;
+	}
+
+	public String getDicstrict() {
+		return dicstrict;
+	}
+
+	public void setDicstrict(String dicstrict) {
+		this.dicstrict = dicstrict;
+	}
+
+	public String getWard() {
+		return ward;
+	}
+
+	public void setWard(String ward) {
+		this.ward = ward;
+	}
+
+	public String getNumber_Home() {
+		return number_Home;
+	}
+
+	public void setNumber_Home(String number_Home) {
+		this.number_Home = number_Home;
+	}
+
+	private String ciTy;
 	
+	private String dicstrict;
 	
+	private String ward;
+	
+	private String number_Home;
 	
 
 }

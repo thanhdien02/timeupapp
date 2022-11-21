@@ -26,9 +26,9 @@
     <properties>
 			<!-- Configuring The Database Connection Details -->
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/new" />
-			<property name="javax.persistence.jdbc.user" value="root" />
-			<property name="javax.persistence.jdbc.password" value="220902@ntd" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://us-cdbr-east-06.cleardb.net/heroku_d6cd7382d86cdcd?reconnect=true;characterEncoding=UTF-8" />
+			<property name="javax.persistence.jdbc.user" value="bcfc05d9871286" />
+			<property name="javax.persistence.jdbc.password" value="6733f805" />
 			<property name="javax.persistence.schema-generation.database.action" 
                 value="update"/>			
 	</properties>
