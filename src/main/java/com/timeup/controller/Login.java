@@ -5,9 +5,11 @@ import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.timeup.business.Product;
 import com.timeup.business.User;
@@ -22,10 +24,29 @@ public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        
-		String url = "/index.jsp";
+        // Xử lí cookie lưu tài khoản và mật khẩu cho login.
+		
+		String url = "/login.jsp";
+		
+		Cookie []arr = request.getCookies();
+		
+		if(arr != null)
+		{
+			for (Cookie cookie : arr) {
+				if(cookie.getName().equals("username"))
+				{
+					String username = cookie.getValue();
+					request.setAttribute("username", username);
+				}
+				if(cookie.getName().equals("password"))
+				{
+					String password = cookie.getValue();
+					request.setAttribute("password", password);
+				}
+			}
+		}
+		
 		getServletContext()
         .getRequestDispatcher(url)
         .forward(request, response);
@@ -51,21 +72,28 @@ public class Login extends HttpServlet {
 		for (User user : users) {
 			if(user.getNameLogin().equals(username) && user.getPassword().equals(password))
 			{
+				// Add cookie cho tài khoản và mật khẩu
+//				HttpSession session = request.getSession();
+//				
+//				session.setAttribute("username", username);
+//				session.setAttribute("password", password);
+//				
 				
-				// Nếu thành công load product lên trang home của nó. 
-				// Đăng nhập bình thường nó cũng load rồi
+		        Cookie userN = new Cookie("username", username);
+
+		        userN.setMaxAge(60 * 60 * 24 * 365 * 3); // set age to 3 years
+		        userN.setPath("/");                      // allow entire app to access it
+		        response.addCookie(userN);
 				
-				// Thiết kế trang dashboarh của nó
-				// Hoàn thành cái product này cho xong của nó luôn 
-				// Phong cách code riêng của mỗi người, lấy APi của nó như thế nào
-				// Lấy danh sách của product. Sau đó cho nó load ra trang của home đưa các sản phẩm của nó ra bên ngoài đó 
-				// Thêm sản phẩm, thông tin.
-				// Cái này có chức năng là.Khi nhắn vào bên trong đó nó sẽ hiện ra như thế này nè hiểu chưa nào
-				
-				
-				
-				url = "/admin.jsp";
-				
+		        Cookie passW = new Cookie("password", password);
+		        passW.setMaxAge(60 * 60 * 24 * 365 * 3); // set age to 3 years
+		        passW.setPath("/");  
+		        // allow entire app to access it
+		        response.addCookie(passW);
+		        
+		        
+				url = "/HomeServlet";
+	
 				getServletContext()
 		        .getRequestDispatcher(url)
 		        .forward(request, response);

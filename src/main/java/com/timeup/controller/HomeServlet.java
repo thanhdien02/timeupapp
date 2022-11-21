@@ -19,7 +19,19 @@ public class HomeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doPost(request, response);;
+		String url = "/index.jsp";
+		
+		List<Product> products = ProductDAO.selectProducts();
+		
+		if(products != null)
+		{
+			request.setAttribute("products", products);
+		}
+		
+		
+		getServletContext()
+        .getRequestDispatcher(url)
+        .forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

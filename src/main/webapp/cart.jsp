@@ -42,28 +42,46 @@
     <div class="site-section">
       <div class="container">
         <div class="row mb-5">
-          <form class="col-md-12" method="post">
+        
+        
+          <form class="col-md-12" method="post" action="CartServlet">
+          
+          
             <div class="site-blocks-table">
               <table class="table table-bordered">
+              
+              <!-- Titile -->
                 <thead>
                   <tr>
-                    <th class="product-thumbnail">Image</th>
-                    <th class="product-name">Product</th>
-                    <th class="product-price">Price</th>
-                    <th class="product-quantity">Quantity</th>
-                    <th class="product-total">Total</th>
-                    <th class="product-remove">Remove</th>
+                    <th class="product-thumbnail">Ảnh</th>
+                    <th class="product-name">Sản phẩm</th>
+                    <th class="product-price">Giá</th>
+                    <th class="product-quantity">Số lượng</th>
+                    <th class="product-total">Tổng</th>
+                    <th class="product-remove">Xóa</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
+                
+                <!-- List cart -->
+                
+                
+                
+                  
+
+
+		        <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+		        <c:forEach var="item" items="${products}">
+		       	 <tr>
                     <td class="product-thumbnail">
-                      <img src="images/cloth_1.jpg" alt="Image" class="img-fluid">
+                      <img src="${item.products_image[0].image_path }" alt="Image" class="img-fluid">
                     </td>
                     <td class="product-name">
-                      <h2 class="h5 text-black">Top Up T-Shirt</h2>
+                    
+                      <h2 class="h5 text-black">${item.nameProduct }</h2>
+                      
                     </td>
-                    <td>$49.00</td>
+                    <td>${item.price }</td>
                     <td>
                       <div class="input-group mb-3" style="max-width: 120px;">
                         <div class="input-group-prepend">
@@ -77,34 +95,21 @@
 
                     </td>
                     <td>$49.00</td>
-                    <td><a href="#" class="btn btn-primary btn-sm">X</a></td>
-                  </tr>
-
-                  <tr>
-                    <td class="product-thumbnail">
-                      <img src="images/cloth_2.jpg" alt="Image" class="img-fluid">
-                    </td>
-                    <td class="product-name">
-                      <h2 class="h5 text-black">Polo Shirt</h2>
-                    </td>
-                    <td>$49.00</td>
                     <td>
-                      <div class="input-group mb-3" style="max-width: 120px;">
-                        <div class="input-group-prepend">
-                          <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
-                        </div>
-                        <input type="text" class="form-control text-center" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                        <div class="input-group-append">
-                          <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
-                        </div>
-                      </div>
-
+					<input type="hidden" value="${item.productId }" name="iddelete"> 
+					<input type="hidden" value="detelecartproduct" name="action">
+					<input class="btn btn-primary btn-sm" type="submit" value="X" >
                     </td>
-                    <td>$49.00</td>
-                    <td><a href="#" class="btn btn-primary btn-sm">X</a></td>
                   </tr>
+				</c:forEach>
+
+
+  
+                  
                 </tbody>
               </table>
+              <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+              
             </div>
           </form>
         </div>

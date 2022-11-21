@@ -39,8 +39,6 @@ public class ProductServlet extends HttpServlet {
 			// TODO: handle exception
 		}
 		
-		
-		
 
 		getServletContext()
         .getRequestDispatcher(url)

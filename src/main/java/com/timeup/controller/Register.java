@@ -29,10 +29,7 @@ private static final long serialVersionUID = 1L;
         .forward(request, response);
 			
 		}
-	/**
-	 *
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String url = "";
@@ -47,7 +44,7 @@ private static final long serialVersionUID = 1L;
 		user.setNameLogin(username);
 		user.setPassword(password);
 
-		 //Kiem tra pass trung nhau
+		 //Kiểm tra pass và pass xác nhận giống nhau
 		if(!password.equals(passwordCF))
 		{
 			url = "/register.jsp";
@@ -59,27 +56,28 @@ private static final long serialVersionUID = 1L;
 		}
 		
 		// Kiểm tra tên tài khoản đăng nhập có trong db chưa
+	
+		List<User> users =  UserDAO.selectUsers();
+		if(users != null)
+		{
+			for (User us : users) {
+				System.out.print(us.getNameLogin());
+				if(us.getNameLogin().equals(username))
+				{
+					String kiemtra = "sai";
+					request.setAttribute("kiemtra", kiemtra);
+					url = "/register.jsp"; 
+					getServletContext()
+			        .getRequestDispatcher(url)
+			        .forward(request, response); // Tro lai trang dang ky va keu nhap lai
+					return;
+				}
+			}	
+		}
 
 		
-		
-//		List<User> users =  UserDAO.selectUsers();
-//		//if(users)
-//		for (User us : users) {
-//			System.out.print(us.getNameLogin());
-//			if(us.getNameLogin().equals(username))
-//			{
-//				String kiemtra = "sai";
-//				request.setAttribute("kiemtra", kiemtra);
-//				url = "/register.jsp"; 
-//				getServletContext()
-//		        .getRequestDispatcher(url)
-//		        .forward(request, response); // Tro lai trang dang ky va keu nhap lai
-//				return;
-//			}
-//		}
-//		
 		UserDAO.insert(user);
-		url = "/login.jsp";
+		url = "/Login";
 		getServletContext()
         .getRequestDispatcher(url)
         .forward(request, response);

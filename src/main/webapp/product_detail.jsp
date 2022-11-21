@@ -160,16 +160,13 @@ https://templatemo.com/tm-559-zay-shop
                 
                 
                 
-                
-                
-                
-                
+   
                 
                 <div class="col-lg-7 mt-5">
                     <div class="card">
                         <div class="card-body">
                             <h1 class="h2">${product.nameProduct }</h1>
-                            <p class="h3 py-2">${product.price }</p>
+                            <p class="h3 py-2">Giá: ${product.price }</p>
                             <p class="py-2">
                                 <i class="fa fa-star text-warning"></i>
                                 <i class="fa fa-star text-warning"></i>
@@ -180,7 +177,7 @@ https://templatemo.com/tm-559-zay-shop
                             </p>
                             <ul class="list-inline">
                                 <li class="list-inline-item">
-                                    <h6>Thương hiệu:</h6>
+                                    <h6>Hãng:</h6>
                                 </li>
                                 <li class="list-inline-item">
                                     <p class="text-muted"><strong>${product.pd_category.nameCategory }</strong></p>
@@ -206,13 +203,13 @@ https://templatemo.com/tm-559-zay-shop
                                 
                             </ul>
 
-                            <form action="" method="GET">
+                           
                                 <input type="hidden" name="product-title" value="Activewear">
                                 <div class="row">
                                     <div class="col-auto">
                                         <ul class="list-inline pb-3">
                                             <li class="list-inline-item text-right">
-                                                Quantity
+                                                Số lượng
                                                 <input type="hidden" name="product-quanity" id="product-quanity" value="1">
                                             </li>
                                             <li class="list-inline-item"><span class="btn btn-success" id="btn-minus">-</span></li>
@@ -221,12 +218,15 @@ https://templatemo.com/tm-559-zay-shop
                                         </ul>
                                     </div>
                                 </div>
+                            <form action="CartServlet" method="post">
                                 <div class="row pb-3">
                                     <div class="col d-grid">
-                                        <button type="submit" class="btn btn-success btn-lg" name="submit" value="buy">Buy</button>
+                                        <button type="submit" class="btn btn-success btn-lg" name="submit" value="buy">Mua</button>
                                     </div>
                                     <div class="col d-grid">
-                                        <button type="submit" class="btn btn-success btn-lg" name="submit" value="addtocard">Add To Cart</button>
+                                    	<input type="hidden" name="action" value="addproduct">
+                                    	<input type="hidden" name="id" value="${product.productId }">
+                                        <input type="submit" class="btn btn-success btn-lg" name="submit" value="Thêm vào giỏ hàng">
                                     </div>
                                 </div>
                             </form>
@@ -257,7 +257,7 @@ https://templatemo.com/tm-559-zay-shop
     <section class="py-5">
         <div class="container">
             <div class="row text-left p-2 pb-3">
-                <h4>Related Products</h4>
+                <h4>Sản phẩm liên quan</h4>
             </div>
 
             <!--Start Carousel Wrapper-->

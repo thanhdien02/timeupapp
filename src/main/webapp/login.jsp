@@ -31,11 +31,11 @@
                 <div class="login-form-content">
                     <div class="form-item">
                         <label for="emailForm">Enter User xin chao 222 <c:out value="${iditem}"></c:out></label>
-                        <input type="text" id="emailForm"  name ="username" required>
+                        <input type="text" id="emailForm"  value="${username }" name ="username" required>
                     </div>
                     <div class="form-item">
                         <label for="passwordForm">Enter Password</label>
-                        <input type="password" id="passwordForm"  name ="password" required>
+                        <input type="password" id="passwordForm"  value="${password }" name ="password" required>
                     </div>
                     <div class="remember-regis">
                         <div class="checkbox">

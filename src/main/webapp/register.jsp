@@ -40,7 +40,7 @@
                     </div>
                     <div class="form-item">
                         <label for="emailForm">Enter Email</label>
-                        <input type="text" id="emailForm" name="email" required>
+                        <input type="email" id="emailForm" name="email" required>
                     </div>
                     <div class="form-item">
                         <label for="emailForm">Enter Password</label>

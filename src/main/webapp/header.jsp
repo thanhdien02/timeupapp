@@ -60,10 +60,10 @@
               </li>
             </ul>
             <div class="user_option-box">
-              <a href="./login.jsp">
+              <a href="./Login">
                 <i class="fa fa-user" aria-hidden="true"></i>
               </a>
-              <a href="./cart.jsp">
+              <a href="./CartServlet">
                 <i class="fa fa-cart-plus" aria-hidden="true"></i>
               </a>
               <a href="">

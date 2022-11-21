@@ -24,7 +24,7 @@ public class ProductAdmin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
 		String url = "/admin.jsp";
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		getServletContext()
@@ -39,7 +39,6 @@ public class ProductAdmin extends HttpServlet {
 		action =request.getParameter("action");
 			
 
-		
 		if(action.equals("load"))
 		{
 			try {

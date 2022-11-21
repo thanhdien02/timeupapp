@@ -96,8 +96,5 @@ public class Product implements Serializable{
 
 	public void setProducts_image(List<Product_image> products_image) {
 		this.products_image = products_image;
-	}
-
-	
-	
+	}	
 }
