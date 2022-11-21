@@ -63,7 +63,7 @@
               <a href="./login.jsp">
                 <i class="fa fa-user" aria-hidden="true"></i>
               </a>
-              <a href="">
+              <a href="./cart.jsp">
                 <i class="fa fa-cart-plus" aria-hidden="true"></i>
               </a>
               <a href="">
