@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -37,7 +38,43 @@ public class Product implements Serializable{
 	@JoinColumn(name = "pd_specificationId")
 	private Product_specification pd_specification;
 	
+	@OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private List<Order_detail> order_details;
+	
+	
+	public List<Order_detail> getOrder_details() {
+		return order_details;
+	}
+
+	public void setOrder_details(List<Order_detail> order_details) {
+		this.order_details = order_details;
+	}
+
+	public List<Import_Product> getImport_products() {
+		return import_products;
+	}
+
+	public void setImport_products(List<Import_Product> import_products) {
+		this.import_products = import_products;
+	}
+
+	@OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private List<Import_Product> import_products;
+	
+	
+	private String cateAge;
+	
 	private Long number_remain;
+
+
+	public String getCateAge() {
+		return cateAge;
+	}
+
+	public void setCateAge(String cateAge) {
+		this.cateAge = cateAge;
+	}
+
 	
 	@OneToMany(mappedBy = "product", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<Product_image> products_image;

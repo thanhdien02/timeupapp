@@ -25,8 +25,16 @@ public class ProductAdmin extends HttpServlet {
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		String url = "/admin.jsp";
+		String url = "/admin_product.jsp";
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		List<Product> products = ProductDAO.selectProducts();
+		
+		if(products != null)
+		{
+			request.setAttribute("products", products);
+		}
+		
 		getServletContext()
         .getRequestDispatcher(url)
         .forward(request, response); // Chuyen trang 
@@ -61,9 +69,15 @@ public class ProductAdmin extends HttpServlet {
 			String color = request.getParameter("colorproduct");
 			String origin = request.getParameter("originproduct");
 			String usetime = request.getParameter("usetimeproduct");
+			String description = request.getParameter("desciptionproduct");
+			String sizegreen = request.getParameter("sizegreen");
+			String weight = request.getParameter("weightproduct");
 			pdspecification.setColor(color);
 			pdspecification.setOrigin(origin);
 			pdspecification.setUse_time(usetime);
+			pdspecification.setDesciption(description);
+			pdspecification.setSizeGreen(sizegreen);
+			pdspecification.setWeight(weight);
 			
 			Product_specificationDAO pdspecificationDao = new Product_specificationDAO();
 			
@@ -74,20 +88,29 @@ public class ProductAdmin extends HttpServlet {
 			Product product = new Product();
 			ProductDAO productDAO = new ProductDAO();
 			String namepd = request.getParameter("nameproduct");
+			String intendedfor = request.getParameter("intendedfor");
 			Long price = Long.parseLong(request.getParameter("priceproduct"));
-			String condition = request.getParameter("conditionproduct");
 			Long number_remain = Long.parseLong(request.getParameter("number_product"));
 			
 			product.setNameProduct(namepd);
 			product.setNumber_remain(number_remain);
 			product.setPrice(price);
+			if(intendedfor.equals("adult"))
+			{
+				intendedfor = "adult";
+			}
+			else 
+			{
+				intendedfor = "kid";
+			}
+			product.setCateAge(intendedfor);
 			
-			// Cate
+			// Loại sản phẩm
 			String namecate = request.getParameter("namecategory");
 			Product_category pdcate = Product_categoryDAO.selectOneByName(namecate);
 			product.setPd_category(pdcate);
 			
-			// specifi
+			// specifition
 			Product_specification pdspeci = new Product_specification();
 			pdspeci = Product_specificationDAO.selectOneByName(color, usetime, origin);
 			

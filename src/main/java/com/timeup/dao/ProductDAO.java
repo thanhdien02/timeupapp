@@ -37,6 +37,29 @@ public class ProductDAO  extends AbstractDAO<Product> {
         return products;
     }
     
+    public static List<Product> selectProductsByNameCate(String namecate) {
+        EntityManager em = DBUtil.getEmFactory();
+        String qString = "SELECT u from Product u";
+        TypedQuery<Product> q = em.createQuery(qString, Product.class);
+
+        List<Product> products;
+        try {
+        	products = q.getResultList();
+        	// Lấy được hết product sau đó
+        	// Từ tên kiếm id của cate 
+        	// Từ id => tìm ra list product của nó.
+            if (products == null || products.isEmpty())
+            {
+            	products = null;
+            	return products;
+            }
+
+        } finally {
+            em.close();
+        }
+        return products;
+    }
+    
     public static Product selectOneByName(String nameProduct, Long price) {
         EntityManager em = DBUtil.getEmFactory();
         String qString = "SELECT u FROM Product u " +

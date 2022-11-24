@@ -18,7 +18,7 @@ public class Address implements Serializable{
 	private Long address_id;
 	
 	@OneToOne
-	@JoinColumn(name = "productId")
+	@JoinColumn(name = "userId")
 	private User user;
 	
 	public Long getAddress_id() {

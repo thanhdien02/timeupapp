@@ -24,7 +24,6 @@ public class ProductCategory extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		// TODO Auto-generated method stub
 		String url = "/admin_product_category.jsp";
-		Product_categoryDAO pdcateDAO = new Product_categoryDAO();
 		
 		List<Product_category> product_categorys = Product_categoryDAO.selectProducts_categorys();
 		request.setAttribute("product_categorys", product_categorys);
@@ -42,7 +41,7 @@ public class ProductCategory extends HttpServlet {
 
 		String action =	request.getParameter("action");
 
-		Product_categoryDAO pdcateDAO = new Product_categoryDAO();
+		
 		
 		List<Product_category> product_categorys = Product_categoryDAO.selectProducts_categorys();
 		
@@ -59,18 +58,25 @@ public class ProductCategory extends HttpServlet {
 			
 			pdcate.setNameCategory(namecate);
 			int test = 0;
-			for (Product_category product_category : product_categorys) {
-				if(namecate.equals(product_category.getNameCategory()))
-				{
-					test = 1;
-					String kiemtra = "datontai";
-					request.setAttribute("kiemtra", kiemtra);
-					
-					url = "/admin_product_category.jsp";
+			
+			// Kiểm tra để tên của loại sản phẩm khi thêm vào không bị trùng
+			if(product_categorys != null)
+			{
+				for (Product_category product_category : product_categorys) {
+					if(namecate.equals(product_category.getNameCategory()))
+					{
+						test = 1;
+						String kiemtra = "datontai";
+						request.setAttribute("kiemtra", kiemtra);
+						
+						url = "/admin_product_category.jsp";
+					}
 				}
-			} 
+			}
+			 
 			if(test == 0) // Nếu không có trong kho sẽ thêm vào bên trong đó
 			{
+				Product_categoryDAO pdcateDAO = new Product_categoryDAO();
 				pdcateDAO.insert(pdcate);
 				List<Product_category> product_categorys1 = Product_categoryDAO.selectProducts_categorys();
 				

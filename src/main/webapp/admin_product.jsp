@@ -10,7 +10,7 @@
     <title>Quản lí sản phẩm</title>
     <!-- ======= Styles ====== -->
   <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
-   <link rel="stylesheet" href="assets-admin/css/style_product.css">
+  <link rel="stylesheet" href="assets-admin/css/style_product.css">
 </head>
 
 <body>
@@ -41,20 +41,20 @@
 
             <!-- ======================= Cards ================== -->
             <div class="cardBox">
-                <div class="card">
-                	<form action="ProductAdmin" method="post">
-                	 	<div>
-							<input type="hidden" name="action" value="load">
-	                        <input class="cardName" type="submit" value="Thêm sản phẩm">
-	               
-                   		 </div>
-                	</form>
-                   
-
-                    <div class="iconBx">
-                        <ion-icon name="eye-outline"></ion-icon>
-                    </div>
-                </div>
+                <form action="ProductAdmin" method="post">
+	                <div class="card">
+	                	 	
+								<input type="hidden" name="action" value="load">
+		                        <input class="cardName" type="submit" value="Thêm sản phẩm">
+		               
+	                   		 
+	                   
+	
+	                    <div class="iconBx">
+	                        <ion-icon name="eye-outline"></ion-icon>
+	                    </div>
+	                </div>
+                </form>
 
                 <div class="card">
                     <div>
@@ -109,12 +109,22 @@
                         </thead>
 
                         <tbody>
-                            <tr>
-                                <td>Star Refrigerator</td>
-                                <td>$1200</td>
-                                <td>Paid</td>
-                                <td><span class="status delivered">Delivered</span></td>
+                        
+                        	<c:forEach var="item" items="${products}">
+							  <tr>
+                                <td>${item.nameProduct}</td>
+                                <td>${item.price}</td>
+                                <td>${item.number_remain}</td>
+
+								<td>
+								
+									<img alt="" src="${item.products_image[0].image_path}" style="width: 100px;">
+
+								</td>
+								
+                                
                             </tr>
+							</c:forEach>
 
                       
                         </tbody>

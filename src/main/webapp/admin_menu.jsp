@@ -9,7 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quản lí sản phẩm</title>
     <!-- ======= Styles ====== -->
-  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  	<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
    <link rel="stylesheet" href="assets-admin/css/style_product.css">
 </head>
 
@@ -27,16 +29,23 @@
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="./admin.jsp">
                         <span class="icon">
                             <ion-icon name="home-outline"></ion-icon>
                         </span>
                         <span class="title">Trang chủ</span>
                     </a>
                 </li>
-
-                <li>
+				<li>
                     <a href="#">
+                        <span class="icon">
+                            <i class='bx bx-cart' style="font-size: 29px;"></i>
+                        </span>
+                        <span class="title">Đơn hàng</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="UserServlet">
                         <span class="icon">
                             <ion-icon name="people-outline"></ion-icon>
                         </span>
@@ -45,40 +54,33 @@
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="ProductAdmin">
                         <span class="icon">
-                            <ion-icon name="appstore-outline"></ion-icon>
+                            <i class='bx bxs-stopwatch' style="font-size: 29px;"></i>
                         </span>
                         <span class="title">Sản phẩm</span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="ProductCategory">
                         <span class="icon">
-                            <ion-icon name="help-outline"></ion-icon>
+                            <i class='bx bx-category' style="font-size: 29px;"></i>
                         </span>
-                        <span class="title">Hỗ trợ</span>
+                        <span class="title">Loại sản phẩm</span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="ProviderServlet">
                         <span class="icon">
-                            <ion-icon name="settings-outline"></ion-icon>
+                            <i class='bx bx-import' style="font-size: 29px;"></i>
                         </span>
-                        <span class="title">Cài đặt</span>
+                        <span class="title">Nhà cung cấp</span>
                     </a>
                 </li>
 
-                <li>
-                    <a href="#">
-                        <span class="icon">
-                            <ion-icon name="lock-closed-outline"></ion-icon>
-                        </span>
-                        <span class="title">Mật khẩu</span>
-                    </a>
-                </li>
+                
 
                 <li>
                     <a href="#">

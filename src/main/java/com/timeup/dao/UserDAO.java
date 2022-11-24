@@ -9,6 +9,7 @@ import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
+import com.timeup.business.Product;
 import com.timeup.business.User;
 import com.timeup.data.DBUtil;
 
@@ -30,6 +31,22 @@ public class UserDAO {
 		return emFactoryObj.createEntityManager();
 	}
 
+    public static User selectById(Long userId) {
+        EntityManager em = DBUtil.getEmFactory();
+        String qString = "SELECT u FROM User u " +
+                "WHERE u.userId = :userId";
+        TypedQuery<User> q = em.createQuery(qString, User.class);
+        q.setParameter("userId", userId);
+        try {
+        	User user = q.getSingleResult();
+            return user;
+        } catch (NoResultException e) {
+            return null;
+        } finally {
+            em.close();
+        }
+    }
+	
     public static void insert(User user)
     
     {

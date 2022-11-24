@@ -10,7 +10,7 @@
     <title>Quản lí sản phẩm</title>
     <!-- ======= Styles ====== -->
   <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
-  <link rel="stylesheet" href="./assets-admin/css/style_product_category.css">
+  <link rel="stylesheet" href="./assets-admin/css/style_admin_user.css">
 </head>
 
 <body>
@@ -40,16 +40,9 @@
 			
 				
 			<div class="addproduct_catedory"> <!-- đặt nó ở trong form rồi thêm loại sản phẩm cho nó mà tôi -->
-				<h2>Thêm loại sản phẩm mới</h2>
+				<h2>Quản lí người dùng</h2>
 				 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-				<c:if test="${kiemtra == 'datontai'}">
-		        	<p style="color: red;margin-top: -35px;margin-bottom: 20px;margin-left: -255px;">Loại sản phẩm này đã có trong kho</p>
-		   		 </c:if>
-				<form action="ProductCategory" method="post">
-					<input type="hidden" name="action" value="add">
-					<input type="text" required placeholder="Tên loại sản phẩm" class="name_cate" name="namecategory">
-					<input type="submit" value="Thêm loại sản phẩm" class="submit_cate">
-				</form>
+				
 			
 			</div>
 			
@@ -58,16 +51,17 @@
 			 <div class="details">
                 <div class="recentOrders">
                     <div class="cardHeader">
-                        <h2>Sản phẩm gần đây</h2>
+                        <h2>Người dùng gần đây</h2>
                         <a href="#" class="btn">Xem tất cả</a>
                     </div>
 
                     <table>
                         <thead>
                             <tr>
-                                <td>Tên loại</td>
-                                <td>Giá</td>
-                                <td>Số lượng còn</td>
+                                <td>Tên</td>
+                                <td>Số điện thoại</td>
+                                <td>Email</td>
+                                <td>Xóa</td>
                                 <td>Cập nhật</td>
                             </tr>
                         </thead>
@@ -75,18 +69,27 @@
                         <tbody>
                        
                             
-							<c:forEach var="item" items="${product_categorys}">
+							<c:forEach var="item" items="${users}">
 							  <tr>
-                                <td>${item.nameCategory}</td>
-                                <td>$1200</td>
-                                <td>Paid</td>
+                                <td>${item.nameLogin}</td>
+                                <td>${item.numberPhone }</td>
+                                <td>${item.email }</td>
 
 								<td>
-									<form action="ProductCategory" method="post">
+                                	<form action="UserServlet" method="post">
 										
 										<input type="hidden" name="action" value="delete">
-										<input type="hidden" name="namecate" value="<c:out value='${item.nameCategory}'/>">
+										<input type="hidden" name="iduser" value="${item.userId }">
 										<input type="submit" value="Xóa" class="status delivered" style="background: red">
+									</form>
+                                </td>
+
+								<td>
+									<form action="UserServlet" method="post">
+										
+										<input type="hidden" name="action" value="update">
+										
+										<input type="submit" value="Chỉnh sửa" class="status delivered">
 									</form>
 								</td>
 								

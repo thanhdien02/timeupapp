@@ -442,38 +442,6 @@ body {
     border: 1px solid var(--black2);
 }
 
-.submit{
-	text-align: right;
-    padding-right: 39px;
-}
-
-.container-input{
-	
-    text-align: left;
-    padding-left: 150px;
-}
-.container-input .item-input{
-	display: flex;
-    padding-right: 265px;
-    margin-bottom: 10px;	
-    margin-top: 10px;
-}
-.container-input .item-input label{
-	
-	flex: 0.4;
-    /* align-items: start; */
-    align-self: center;
-    font-size: 23px;
-}
-.container-input .item-input input{
-	    flex: 1;
-}
-
-
-.item-for{
-	margin-top: 20px;
-	
-}
 /* ====================== Responsive Design ========================== */
 @media (max-width: 991px) {
   .navigation {

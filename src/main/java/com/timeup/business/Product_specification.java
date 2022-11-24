@@ -9,6 +9,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 @Entity
@@ -17,6 +18,14 @@ public class Product_specification {
     @GeneratedValue(strategy = GenerationType.AUTO)
 	private Long pd_specificationId;
 	
+	public String getDesciption() {
+		return desciption;
+	}
+
+	public void setDesciption(String desciption) {
+		this.desciption = desciption;
+	}
+
 	public Long getPd_specId() {
 		return pd_specificationId;
 	}
@@ -60,6 +69,28 @@ public class Product_specification {
 	private String color;
 	private String use_time;
 	private String origin;
+	@Lob
+	private String desciption;
+	
+	private String sizeGreen;
+	
+	public String getSizeGreen() {
+		return sizeGreen;
+	}
+
+	public void setSizeGreen(String sizeGreen) {
+		this.sizeGreen = sizeGreen;
+	}
+
+	public String getWeight() {
+		return weight;
+	}
+
+	public void setWeight(String weight) {
+		this.weight = weight;
+	}
+
+	private String weight;
 	
 	@OneToOne(mappedBy = "pd_specification")
 	private Product product;

@@ -60,7 +60,18 @@
 						</div>
 						<div class="item-input">
 							<label>Mô tả</label>
-							<input type="text" required placeholder="Mô tả" class="name_cate" name="conditionproduct">
+							<textarea name="desciptionproduct" id="c_order_notes" cols="30" rows="5" class="form-control"
+							
+							style="
+								padding: 5px 20px;
+								padding-left: 20px;
+								padding-left: 35px;
+								font-size: 18px;
+								outline: none;
+								border: 1px solid var(--black2);
+								flex: 1;"
+							 placeholder="Viết mô tả vào đây..."></textarea>
+							<!-- <input type="text" required placeholder="Mô tả" class="name_cate" name="conditionproduct"> -->
 						</div>
 						<div class="item-input">
 							<label>Màu sản phẩm</label>
@@ -70,6 +81,16 @@
 							<label>Nguồn gốc</label>
 							<input type="text" required placeholder="Nguồn gốc" class="name_cate" name="originproduct">
 						</div>
+						
+						<div class="item-input">
+							<label>Trọng lượng</label>
+							<input type="text" required placeholder="Trọng lượng" class="name_cate" name="weightproduct">
+						</div>
+						<div class="item-input">
+							<label>Kích thước màn hình</label>
+							<input type="text" required placeholder="Kích thước màn hình" class="name_cate" name="sizegreen">
+						</div>
+						
 						<div class="item-input">
 							<label>Thời lượng sử dụng</label>
 							<input type="number" required placeholder="Thời lượng sử dụng" class="name_cate" name="usetimeproduct">
@@ -78,7 +99,15 @@
 							<label>Số lượng thêm</label>
 							<input type="number" required placeholder="Giá" class="name_cate" name="number_product">
 						</div>
-						
+						<div class="item-input item-for">
+							<label>Dành cho</label>
+							<div style="flex: 1;">
+								<label >Người lớn</label>
+								<input type="radio" id="html" name="intendedfor" value="adult" style="scale: 2.0;width: 80px;">
+							 	<label >Trẻ em</label>
+							  	<input type="radio" id="css" name="intendedfor" value="kid" style="scale: 2.0;width: 80px;">
+							</div>
+						</div>
 					</div>
 					
 					<div class="submit">

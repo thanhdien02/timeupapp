@@ -75,7 +75,7 @@
 					
 				</form>
 				 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-				<h2> Ten là ${productadd.nameProduct} </h2>
+				<a href="./admin_product.jsp"><input type="button" value="Quay lại trang quản lí" class="submit_cate"></a>
 
 			</div>
 			
@@ -112,8 +112,6 @@
 									<img alt="" src="${item.image_path}" style="width: 100px;">
 
 								</td>
-								
-                                
                             </tr>
 							</c:forEach>
                       

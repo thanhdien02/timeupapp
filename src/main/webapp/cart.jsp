@@ -118,11 +118,11 @@
           <div class="col-md-6">
             <div class="row mb-5">
               <div class="col-md-6 mb-3 mb-md-0">
-                <button class="btn btn-primary btn-sm btn-block">Update Cart</button>
+                <button class="btn btn-primary btn-sm btn-block">Cập nhật giỏ hàng</button>
               </div>
 	              <div class="col-md-6">
 		              <a href="./HomeServlet">
-			              	<button type="submit" class="btn btn-outline-primary btn-sm btn-block">Continue Shopping</button>
+			              	<button type="submit" class="btn btn-outline-primary btn-sm btn-block">Tiếp tục mua sắm</button>
 		              </a>
 	              </div>
               
@@ -145,12 +145,12 @@
               <div class="col-md-7">
                 <div class="row">
                   <div class="col-md-12 text-right border-bottom mb-5">
-                    <h3 class="text-black h4 text-uppercase">Cart Totals</h3>
+                    <h3 class="text-black h4 text-uppercase">Tổng giỏ hàng</h3>
                   </div>
                 </div>
                 <div class="row mb-3">
                   <div class="col-md-6">
-                    <span class="text-black">Subtotal</span>
+                    <span class="text-black">Phụ phí</span>
                   </div>
                   <div class="col-md-6 text-right">
                     <strong class="text-black">$230.00</strong>
@@ -158,7 +158,7 @@
                 </div>
                 <div class="row mb-5">
                   <div class="col-md-6">
-                    <span class="text-black">Total</span>
+                    <span class="text-black">Tổng</span>
                   </div>
                   <div class="col-md-6 text-right">
                     <strong class="text-black">$230.00</strong>
@@ -168,7 +168,7 @@
                 <div class="row">
                 
                   <div class="col-md-12">
-                    <button class="btn btn-primary btn-lg py-3 btn-block" onclick="window.location='checkout.html'">Proceed To Checkout</button>
+                    <button class="btn btn-primary btn-lg py-3 btn-block" onclick="window.location='checkout.jsp'">Tiến hành thanh toán</button>
                   </div>
                 </div>
               </div>

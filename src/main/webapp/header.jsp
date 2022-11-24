@@ -47,10 +47,10 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav">
               <li class="nav-item active">
-                <a class="nav-link" href="index.jsp">Trang chủ <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="HomeServlet">Trang chủ <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="shop.jsp"> Sản phẩm </a>
+                <a class="nav-link" href="./ShopServlet"> Sản phẩm </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="about.jsp"> Về chúng tôi </a>

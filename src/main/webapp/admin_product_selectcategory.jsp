@@ -58,10 +58,10 @@
                     <table>
                         <thead>
                             <tr>
-                                <td>Tên 11</td>
+                                <td>Tên</td>
                                 <td>Giá</td>
                                 <td>Số lượng còn</td>
-                                <td>Cập nhật</td>
+                                <td>Lựa chọn loại hàng thêm sản phẩm</td>
                             </tr>
                         </thead>
 

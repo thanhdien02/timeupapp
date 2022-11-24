@@ -181,8 +181,8 @@ https://templatemo.com/tm-559-zay-shop
                                 </li>
                             </ul>
 
-                            <h6>Description:</h6>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temp incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse. Donec condimentum elementum convallis. Nunc sed orci a diam ultrices aliquet interdum quis nulla.</p>
+                            <h6>Mô tả:</h6>
+                            <p>${product.pd_specification.desciption }</p>
                             <ul class="list-inline">
                                 <li class="list-inline-item">
                                     <h6>Color :</h6>
@@ -195,9 +195,10 @@ https://templatemo.com/tm-559-zay-shop
                             <h6>Thông số:</h6>
                             <ul class="list-unstyled pb-3">
                                 <li></li>
-                                <li>${product.pd_specification.use_time }</li>
-                                <li>${product.pd_specification.origin }</li>
-                                
+                                <li>Thời gian sử dụng: ${product.pd_specification.use_time } tiếng</li>
+                                <li>Nguồn gốc: ${product.pd_specification.origin }</li>
+                                <li>Kích thước màn hình: ${product.pd_specification.sizeGreen }</li>
+                                <li>Trọng lượng: ${product.pd_specification.weight }</li>
                             </ul>
 
                            

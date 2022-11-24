@@ -22,9 +22,12 @@ public class User implements Serializable {
     private Long userId;
     
     
-    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Address> address;
 
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<Order> order;
+    
     @Column(unique=true, nullable = false)
     private String email;
     

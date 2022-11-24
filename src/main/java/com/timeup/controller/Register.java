@@ -78,7 +78,7 @@ private static final long serialVersionUID = 1L;
 
 		
 		UserDAO.insert(user);
-		url = "/Login";
+		url = "/login.jsp";
 		getServletContext()
         .getRequestDispatcher(url)
         .forward(request, response);

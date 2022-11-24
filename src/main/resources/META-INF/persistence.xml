@@ -10,27 +10,46 @@
     <class>com.timeup.business.Product</class>
 
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
-    <!-- <properties>
+    
+     <properties>
       <property name="javax.persistence.jdbc.url" 
-                value="jdbc:postgresql://ec2-54-163-34-107.compute-1.amazonaws.com:5432/db751bf1h6biek"/>
+                value="jdbc:postgresql://ec2-52-86-115-245.compute-1.amazonaws.com:5432/d8l1vcjuce4dcs"/>
       <property name="javax.persistence.jdbc.user" 
-                value="hwcutccpwiroty"/>
+                value="uuyxajwsagwrrt"/>
       <property name="javax.persistence.jdbc.password" 
-                value="ec53111a1b8fae714bf511e3d7c193ce2108d2ef7af650866d037ca1c61b624c"/>
+                value="df7f350ebf53b8e0fe112b53370a3589c47d1224b5c12469769acbca3f3c584c"/>
       <property name="javax.persistence.jdbc.driver" 
       			value="org.postgresql.Driver" />
       <property name="javax.persistence.schema-generation.database.action" 
                 value="create"/>
-    </properties> -->
+    </properties> 
     
-    <properties>
-			<!-- Configuring The Database Connection Details -->
+    <!--  
+    
+        <properties>
+			
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://us-cdbr-east-06.cleardb.net/heroku_d6cd7382d86cdcd?reconnect=true;characterEncoding=UTF-8" />
 			<property name="javax.persistence.jdbc.user" value="bcfc05d9871286" />
 			<property name="javax.persistence.jdbc.password" value="6733f805" />
 			<property name="javax.persistence.schema-generation.database.action" 
                 value="update"/>			
+		</properties>
+    
+    -->
+
+	<!-- 
+	<properties>
+			
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/new" />
+			<property name="javax.persistence.jdbc.user" value="root" />
+			<property name="javax.persistence.jdbc.password" value="220902@ntd" />
+			<property name="javax.persistence.schema-generation.database.action" 
+                value="create"/>			
 	</properties>
+	
+	 -->
+	
   </persistence-unit>
 </persistence>
