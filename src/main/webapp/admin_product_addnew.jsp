@@ -97,7 +97,7 @@
 						</div>
 						<div class="item-input">
 							<label>Số lượng thêm</label>
-							<input type="number" required placeholder="Giá" class="name_cate" name="number_product">
+							<input type="number" required placeholder="Số lượng thêm" class="name_cate" name="number_product">
 						</div>
 						<div class="item-input item-for">
 							<label>Dành cho</label>

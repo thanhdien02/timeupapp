@@ -1,6 +1,7 @@
 package com.timeup.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -27,9 +28,30 @@ public class ShopServlet extends HttpServlet {
 		
 		if(products != null)
 		{
-			request.setAttribute("products", products);
-	
+			// Lấy 9 sản phẩm load lên home mà thôi
+			
+			int leght = products.size();
+			
+			if(leght > 9)
+			{
+				List<Product> productsnew = new ArrayList<Product>();
 				
+				int i = 0;
+				for (Product product : products) {
+					
+					if(i == 9)
+					{
+						break;
+					}
+					productsnew.add(product);
+					i++;
+				}
+				request.setAttribute("products", productsnew);
+			}
+			else 
+			{				
+				request.setAttribute("products", products);
+			}
 		}
 		
 		List<Product_category> product_categorys = Product_categoryDAO.selectProducts_categorys();

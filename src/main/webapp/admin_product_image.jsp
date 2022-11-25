@@ -75,7 +75,7 @@
 					
 				</form>
 				 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-				<a href="./admin_product.jsp"><input type="button" value="Quay lại trang quản lí" class="submit_cate"></a>
+				<a href="ProductAdmin"><input type="button" value="Quay lại trang quản lí" class="submit_cate"></a>
 
 			</div>
 			

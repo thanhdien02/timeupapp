@@ -37,7 +37,7 @@
         <div class="col-md-6 col-lg-3 footer-col">
           <div class="footer_detail">
             <h4>
-              About
+              Về chúng tôi
             </h4>
             <p>
               Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with
@@ -61,25 +61,25 @@
         <div class="col-md-6 col-lg-3 footer-col">
           <div class="footer_contact">
             <h4>
-              Reach at..
+              Tìm tại ......
             </h4>
             <div class="contact_link_box">
               <a href="">
                 <i class="fa fa-map-marker" aria-hidden="true"></i>
                 <span>
-                  Location
+                  Địa chỉ
                 </span>
               </a>
               <a href="">
                 <i class="fa fa-phone" aria-hidden="true"></i>
                 <span>
-                  Call +01 1234567890
+                  Gọi +01 1234567890
                 </span>
               </a>
               <a href="">
                 <i class="fa fa-envelope" aria-hidden="true"></i>
                 <span>
-                  demo@gmail.com
+                  DHSPKT@gmail.com
                 </span>
               </a>
             </div>
@@ -88,7 +88,7 @@
         <div class="col-md-6 col-lg-3 footer-col">
           <div class="footer_contact">
             <h4>
-              Subscribe
+              Đăng ký
             </h4>
             <form action="#">
               <input type="text" placeholder="Enter email" />
@@ -108,8 +108,8 @@
       </div>
       <div class="footer-info">
         <p>
-          &copy; <span id="displayYear"></span> All Rights Reserved By
-          <a href="https://html.design/">Free Html Templates</a>
+          &copy; <span id="displayYear"></span> Thiết kế bởi nhóm 5
+          <a href="https://html.design/"></a>
         </p>
       </div>
     </div>

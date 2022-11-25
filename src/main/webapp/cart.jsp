@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Shoppers &mdash; Colorlib e-Commerce Template</title>
+    <title>Giỏ hàng</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -64,13 +64,9 @@
                 <tbody>
                 
                 <!-- List cart -->
-                
-                
-                
-                  
-
 
 		        <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+		        
 		        <c:forEach var="item" items="${products}">
 		       	 <tr>
                     <td class="product-thumbnail">
@@ -103,12 +99,9 @@
                   </tr>
 				</c:forEach>
 
-
-  
-                  
+ 
                 </tbody>
               </table>
-              <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
               
             </div>
           </form>

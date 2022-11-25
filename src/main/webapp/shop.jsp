@@ -79,13 +79,9 @@
               <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
               
               
-              
-                 
-		        
-
  			<c:forEach var="item" items="${products}">
-              <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
-                <div class="block-4 text-center border">
+              <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up" style="height:480px ">
+                <div class="block-4 text-center border"  style="height:470px ">
                   <figure class="block-4-image">
                     <a href="./ProductServlet?id=${item.productId}"><img src="${item.products_image[0].image_path}" alt="Image placeholder" class="img-fluid"></a>
                   </figure>
@@ -98,6 +94,9 @@
               </div>
 			</c:forEach>
 
+
+
+			
             </div>
             <div class="row" data-aos="fade-up">
               <div class="col-md-12 text-center">
@@ -176,7 +175,7 @@
             <div class="site-section site-blocks-2">
                 <div class="row justify-content-center text-center mb-5">
                   <div class="col-md-7 site-section-heading pt-4">
-                    <h2>Categories</h2>
+                    <h2>Phân loại sản phẩm</h2>
                   </div>
                 </div>
                 <div class="row">
