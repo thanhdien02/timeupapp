@@ -27,7 +27,7 @@ public class CartServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String url = "/admin.jsp";
+		String url = "/cart.jsp";
 		Cookie []arr = request.getCookies();
 		List<Product> products = new ArrayList<>();
 		
@@ -40,14 +40,47 @@ public class CartServlet extends HttpServlet {
 			String idl = removeLastChar(pdid);
 			
 			String listid[] = pdid.split("@");
-			for (String string : listid) {
+			
+			
+			Long tongcart = (long) 0;
+ 			for (String string : listid) {
 				
 				// Tìm sản phẩm qua id
 				Long longid = Long.parseLong(string);
 				Product product = ProductDAO.selectById(longid);
-				products.add(product);
+				
+				
+				for(Cookie cookie: arr)
+				{
+					if(string.equals(cookie.getName()))
+					{
+						
+						// Xử lí để lấy và đưa số lượng sản phẩm lên trên đó. 
+						//storequatity.add(Integer.parseInt(string));
+						if(product != null)
+						{
+							// Lấy quantity trong cookie
+							Long quatity = Long.parseLong(cookie.getValue());
+							product.setQuatity(quatity);
+							
+							// Cập nhật nó vào db
+							//ProductDAO pddao = new ProductDAO();
+							//pddao.update(product);
+							
+							long tong1product = quatity* product.getPrice();
+							
+							tongcart += tong1product;
+							products.add(product);
+						}
+						
+					}
+				}
+				
 			}
-			url = "/cart.jsp";
+			
+			// Lấy mảng cookie.
+			//request.setAttribute("quatityproducts", storequatity);
+ 			request.setAttribute("sumcart", tongcart);
 			request.setAttribute("products", products);
 		}
 		url = "/cart.jsp";
@@ -69,6 +102,7 @@ public class CartServlet extends HttpServlet {
 		
 		// Delete product trong giỏ hàng
 		String action = request.getParameter("action");
+		
 		if(action.equals("detelecartproduct"))
 		{
 			String iddelete = request.getParameter("iddelete");
@@ -103,7 +137,30 @@ public class CartServlet extends HttpServlet {
 					// Tìm sản phẩm qua id
 					Long longid = Long.parseLong(string);
 					Product product = ProductDAO.selectById(longid);
-					products.add(product);
+					//products.add(product);
+					for(Cookie cookie: arr)
+					{
+						if(string.equals(cookie.getName()))
+						{
+							
+							// Xử lí để lấy và đưa số lượng sản phẩm lên trên đó. 
+							//storequatity.add(Integer.parseInt(string));
+							if(product != null)
+							{
+								// Lấy quantity trong cookie
+								Long quatity = Long.parseLong(cookie.getValue());
+								product.setQuatity(quatity);
+								
+								// Cập nhật nó vào db
+								//ProductDAO pddao = new ProductDAO();
+								//pddao.update(product);
+								
+								products.add(product);
+								break;
+							}
+							
+						}
+					}
 				}
 				request.setAttribute("products", products);
 			}
@@ -114,71 +171,177 @@ public class CartServlet extends HttpServlet {
 			return;
 	        //
 		}
+		// Cập nhật giỏ hàng. Mỗi lần chỉ cập nhật 1 sản phẩm mà thôi
 		
-	
-		String pdid = request.getParameter("id");
-		
-		Long idR = Long.parseLong(pdid);
-		
-		url = "/cart.jsp";
-		request.setAttribute("id", idR);
-		
-		if(str_id == "")
+		if(action.equals("updateproduct"))
 		{
-			
-			String soluong = request.getParameter("var-value");
-	        
-	        Cookie sl = new Cookie(pdid, soluong);
 
-	        sl.setMaxAge(60 * 60 * 24 * 365 * 3); // set age to 3 years
-	        sl.setPath("/");                      // allow entire app to access it
-	        response.addCookie(sl);
+			String id = request.getParameter("idupdate");
 			
-			// Chưa khởi tạo
-			pdid += "@";
-	        Cookie ID = new Cookie("id", pdid);
+			// Cập nhật vào cookie và load dữ liệu lại
 
-	        ID.setMaxAge(60 * 60 * 24 * 365 * 3); // set age to 3 years
-	        ID.setPath("/");                      // allow entire app to access it
-	        response.addCookie(ID);
-	        url = "/ProductServlet";
+			 String quantt = request.getParameter("quatitycart");
+		     Cookie sl = new Cookie(id, quantt);
+
+		     sl.setMaxAge(60 * 60 * 24 * 365 * 3); // set age to 3 years
+		     sl.setPath("/");                      // allow entire app to access it
+		     response.addCookie(sl);
 			
-		}
-		else
-		{
-			// Nó có đi vào bên trong đây không.
-			for (Cookie cookie : arr) {
-				if(cookie.getName().equals("id"))
+		     
+		     
+				List<Product> products = new ArrayList<>();
+				
+				String pdid = CookieUtil.getCookieValue(arr, "id");
+				
+				if(!pdid.equals(""))
 				{
-					String id = cookie.getValue();
 					
-					if(id.contains(pdid)) // Kiểm tra giỏ hàng đã có sản phẩm này hay chưa.
-					{
-						// Nếu đã có thông báo là sản phẩm đã có trong giỏ hàng rồi.
-	
-						url = "/ProductServlet";
-						break;
+					// Xóa dấu phẩy cuối chuỗi id
+					String idl = removeLastChar(pdid);
+					
+					String listid[] = pdid.split("@");
+					
+					
+					Long tongcart = (long) 0;
+		 			for (String string : listid) {
+						
+						// Tìm sản phẩm qua id
+						Long longid = Long.parseLong(string);
+						Product product = ProductDAO.selectById(longid);
+						
+						
+						for(Cookie cookie: arr)
+						{
+							if(string.equals(cookie.getName()))
+							{
+								
+								// Xử lí để lấy và đưa số lượng sản phẩm lên trên đó. 
+								//storequatity.add(Integer.parseInt(string));
+								if(product != null)
+								{
+									if(id.equals(string))
+									{
+										// Lấy quantity trong cookie
+										Long quatity = Long.parseLong(quantt);
+										product.setQuatity(quatity);
+										
+										// Cập nhật nó vào db
+										//ProductDAO pddao = new ProductDAO();
+										//pddao.update(product);
+										
+										long tong1product = quatity* product.getPrice();
+										
+										tongcart += tong1product;
+										products.add(product);
+										
+									}
+									else
+									{
+										// Lấy quantity trong cookie
+										Long quatity = Long.parseLong(cookie.getValue());
+										product.setQuatity(quatity);
+										
+										// Cập nhật nó vào db
+										//ProductDAO pddao = new ProductDAO();
+										//pddao.update(product);
+										
+										long tong1product = quatity* product.getPrice();
+										
+										tongcart += tong1product;
+										products.add(product);
+									}
+									
+								}
+								
+							}
+						}
+						
 					}
 					
-					id += pdid+"@";
-					
-					Cookie ID = new Cookie("id", id);
-
-			        ID.setMaxAge(60 * 60 * 24 * 365 * 3); // set age to 3 years
-			        ID.setPath("/");                      // allow entire app to access it
-			        response.addCookie(ID);
-			        
-			        String soluong = request.getParameter("quantity");
-			        Cookie sl = new Cookie(pdid, soluong);
-
-			        sl.setMaxAge(60 * 60 * 24 * 365 * 3); // set age to 3 years
-			        sl.setPath("/");                      // allow entire app to access it
-			        response.addCookie(sl);
-			        
-					//cookie.setValue(id);
+					// Lấy mảng cookie.
+					//request.setAttribute("quatityproducts", storequatity);
+		 			request.setAttribute("sumcart", tongcart);
+					request.setAttribute("products", products);
 				}
+				url = "/cart.jsp";
+				getServletContext()
+		        .getRequestDispatcher(url)
+		        .forward(request, response);
+		     
+		     
+		}
+		
+			
+		// Thêm vào giỏ hàng
+		
+		if(action.equals("addproduct"))
+		{
+			String pdid = request.getParameter("id");
+			
+			Long idR = Long.parseLong(pdid);
+			
+			url = "/cart.jsp";
+			request.setAttribute("id", idR);
+			
+			
+			// Gio hàng chửa có gì
+			if(str_id == "")
+			{
+				
+				String soluong = request.getParameter("quantity");
+		        
+		        Cookie sl = new Cookie(pdid, soluong);
+
+		        sl.setMaxAge(60 * 60 * 24 * 365 * 3); // set age to 3 years
+		        sl.setPath("/");                      // allow entire app to access it
+		        response.addCookie(sl);
+				
+				// Chưa khởi tạo
+				pdid += "@";
+		        Cookie ID = new Cookie("id", pdid);
+
+		        ID.setMaxAge(60 * 60 * 24 * 365 * 3); // set age to 3 years
+		        ID.setPath("/");                      // allow entire app to access it
+		        response.addCookie(ID);
+		        url = "/ProductServlet";
+				
 			}
-			url = "/ProductServlet";
+			else
+			{
+				// Nó có đi vào bên trong đây không.
+				for (Cookie cookie : arr) {
+					if(cookie.getName().equals("id"))
+					{
+						String id = cookie.getValue();
+						
+						if(id.contains(pdid)) // Kiểm tra giỏ hàng đã có sản phẩm này hay chưa.
+						{
+							// Nếu đã có thông báo là sản phẩm đã có trong giỏ hàng rồi.
+		
+							url = "/ProductServlet";
+							break;
+						}
+						
+						id += pdid+"@";
+						
+						Cookie ID = new Cookie("id", id);
+
+				        ID.setMaxAge(60 * 60 * 24 * 365 * 3); // set age to 3 years
+				        ID.setPath("/");                      // allow entire app to access it
+				        response.addCookie(ID);
+				        
+				        String soluong = request.getParameter("quantity");
+				        Cookie sl = new Cookie(pdid, soluong);
+
+				        sl.setMaxAge(60 * 60 * 24 * 365 * 3); // set age to 3 years
+				        sl.setPath("/");                      // allow entire app to access it
+				        response.addCookie(sl);
+				        
+						//cookie.setValue(id);
+					}
+				}
+				url = "/ProductServlet";
+			}
 		}
 
 		getServletContext()

@@ -163,7 +163,12 @@ https://templatemo.com/tm-559-zay-shop
                     <div class="card">
                         <div class="card-body">
                             <h1 class="h2">${product.nameProduct }</h1>
-                            <p class="h3 py-2">Giá: ${product.price }</p>
+                            <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+                            <p class="h3 py-2">
+                            <fmt:setLocale value = "vi_VN"/>
+                            <fmt:formatNumber value = "${product.price }" type = "currency"/>
+                            
+                            </p>
                             <p class="py-2">
                                 <i class="fa fa-star text-warning"></i>
                                 <i class="fa fa-star text-warning"></i>

@@ -34,11 +34,21 @@ public class Product implements Serializable{
 	
 	private Long price;
 	
+	private Long quantity;
+	
+	public Long getQuantity() {
+		return quantity;
+	}
+
+	public void setQuatity(Long quantity) {
+		this.quantity = quantity;
+	}
+
 	@OneToOne
 	@JoinColumn(name = "pd_specificationId")
 	private Product_specification pd_specification;
 	
-	@OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
 	private List<Order_detail> order_details;
 	
 	
@@ -58,7 +68,7 @@ public class Product implements Serializable{
 		this.import_products = import_products;
 	}
 
-	@OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
 	private List<Import_Product> import_products;
 	
 	

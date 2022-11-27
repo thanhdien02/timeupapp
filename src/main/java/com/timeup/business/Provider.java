@@ -64,6 +64,6 @@ public class Provider implements Serializable {
 	private String numberPhone;
 	
 
-	@OneToMany(mappedBy = "provider", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "provider", cascade = CascadeType.ALL)
 	private List<Import_Product> import_products;
 }

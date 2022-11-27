@@ -40,7 +40,7 @@
               Về chúng tôi
             </h4>
             <p>
-              Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with
+             Nhóm sinh viên của Trường Đại Học Sư Phạm Kỹ Thuật TP.HCM
             </p>
             <div class="footer_social">
               <a href="">

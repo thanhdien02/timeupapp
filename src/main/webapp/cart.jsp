@@ -1,3 +1,5 @@
+<%@page import="java.text.NumberFormat"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -44,7 +46,7 @@
         <div class="row mb-5">
         
         
-          <form class="col-md-12" method="post" action="CartServlet">
+          
           
           
             <div class="site-blocks-table">
@@ -57,7 +59,7 @@
                     <th class="product-name">Sản phẩm</th>
                     <th class="product-price">Giá</th>
                     <th class="product-quantity">Số lượng</th>
-                    <th class="product-total">Tổng</th>
+                    <th>Cập nhật</th>
                     <th class="product-remove">Xóa</th>
                   </tr>
                 </thead>
@@ -66,7 +68,7 @@
                 <!-- List cart -->
 
 		        <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-		        
+		        <% int n = 0; %>
 		        <c:forEach var="item" items="${products}">
 		       	 <tr>
                     <td class="product-thumbnail">
@@ -77,24 +79,41 @@
                       <h2 class="h5 text-black">${item.nameProduct }</h2>
                       
                     </td>
-                    <td>${item.price }</td>
                     <td>
-                      <div class="input-group mb-3" style="max-width: 120px;">
-                        <div class="input-group-prepend">
-                          <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
-                        </div>
-                        <input type="text" class="form-control text-center" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                        <div class="input-group-append">
-                          <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
-                        </div>
-                      </div>
-
+                    
+                    <fmt:setLocale value = "vi_VN"/>
+                    <fmt:formatNumber value = "${item.price }" type = "currency"/>
                     </td>
-                    <td>$49.00</td>
+                   	<form action="CartServlet" method="post">
+	                    <td>
+	                      <div class="input-group mb-3" style="max-width: 120px;">
+	                        <div class="input-group-prepend">
+	                          <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
+	                        </div>
+	                        
+	                        <input name="quatitycart" type="text" class="form-control text-center" value="${item.quantity }"  placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+	                        <div class="input-group-append">
+	                          <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
+	                        </div>
+	                      </div>
+	
+	                    </td>
+	                   
+	                   <td> 
+	                   	
+	                   		    <input type="hidden" value="${item.productId }" name="idupdate"> 
+	                   		    
+								<input type="hidden" value="updateproduct" name="action">      		
+		                   		<input class="btn btn-primary btn-sm" type="submit" value="Cập nhật" >
+	                   
+	                    </td>
+                   	</form>
                     <td>
-					<input type="hidden" value="${item.productId }" name="iddelete"> 
-					<input type="hidden" value="detelecartproduct" name="action">
-					<input class="btn btn-primary btn-sm" type="submit" value="X" >
+                    	<form class="col-md-12" method="post" action="CartServlet">
+							<input type="hidden" value="${item.productId }" name="iddelete"> 
+							<input type="hidden" value="detelecartproduct" name="action">
+							<input class="btn btn-primary btn-sm" type="submit" value="X" >
+		          		</form>
                     </td>
                   </tr>
 				</c:forEach>
@@ -104,7 +123,7 @@
               </table>
               
             </div>
-          </form>
+          
         </div>
 
         <div class="row">
@@ -154,19 +173,30 @@
                     <span class="text-black">Tổng</span>
                   </div>
                   <div class="col-md-6 text-right">
-                    <strong class="text-black">$230.00</strong>
+                    <strong class="text-black">
+                    
+                    <fmt:setLocale value = "vi_VN"/>
+                    <fmt:formatNumber value = "${sumcart }" type = "currency"/>
+                    
+                    </strong>
                   </div>
                 </div>
 
                 <div class="row">
                 
-                  <div class="col-md-12">
-                    <button class="btn btn-primary btn-lg py-3 btn-block" onclick="window.location='checkout.jsp'">Tiến hành thanh toán</button>
-                  </div>
+                <form action="CheckoutServlet" method="get">
+	                <div class="col-md-12">
+	                    <button class="btn btn-primary btn-lg py-3 btn-block" onclick="window.location='checkout.jsp'">Tiến hành thanh toán</button>
+	                 </div>
+                
+                </form>
+                
+                  
                 </div>
               </div>
             </div>
           </div>
+            
         </div>
       </div>
     </div>

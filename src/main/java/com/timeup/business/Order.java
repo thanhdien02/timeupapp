@@ -26,7 +26,7 @@ public class Order implements Serializable{
 
 	private Long priceSum;
 	
-	@OneToMany(mappedBy = "order", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
 	private List<Order_detail> order_details;
 	
 	@ManyToOne

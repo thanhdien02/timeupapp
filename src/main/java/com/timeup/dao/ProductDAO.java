@@ -3,6 +3,7 @@ package com.timeup.dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 
@@ -87,6 +88,21 @@ public class ProductDAO  extends AbstractDAO<Product> {
             return product;
         } catch (NoResultException e) {
             return null;
+        } finally {
+            em.close();
+        }
+    }
+    
+    public void update(Product product) {
+    	EntityManager em = DBUtil.getEmFactory();
+        EntityTransaction trans = em.getTransaction();
+        trans.begin();       
+        try {
+            em.merge(product);
+            trans.commit();
+        } catch (Exception e) {
+            System.out.println(e);
+            trans.rollback();
         } finally {
             em.close();
         }

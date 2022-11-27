@@ -67,14 +67,14 @@
                 <div class="col-md-6">
                   <div class="detail-box">
                     <h1>
-                      Smart Watches
+                     Chào mừng đến với Timeup
                     </h1>
                     <p>
-                      Aenean scelerisque felis ut orci condimentum laoreet. Integer nisi nisl, convallis et augue sit amet, lobortis semper quam.
+                     Đây là trang bán đồng hồ thông minh dành cho người lớn và trẻ em.
                     </p>
                     <div class="btn-box">
                       <a href="" class="btn1">
-                        Contact Us
+                        Liên hệ với chúng tôi
                       </a>
                     </div>
                   </div>
@@ -93,14 +93,14 @@
                 <div class="col-md-6">
                   <div class="detail-box">
                     <h1>
-                      Smart Watches
+                      Chào mừng đến với Timeup
                     </h1>
                     <p>
-                      Aenean scelerisque felis ut orci condimentum laoreet. Integer nisi nisl, convallis et augue sit amet, lobortis semper quam.
+                      Đây là trang bán đồng hồ thông minh dành cho người lớn và trẻ em.
                     </p>
                     <div class="btn-box">
                       <a href="" class="btn1">
-                        Contact Us
+                        Liên hệ với chúng tôi
                       </a>
                     </div>
                   </div>
@@ -119,14 +119,14 @@
                 <div class="col-md-6">
                   <div class="detail-box">
                     <h1>
-                      Smart Watches
+                      Chào mừng đến với Timeup
                     </h1>
                     <p>
-                      Aenean scelerisque felis ut orci condimentum laoreet. Integer nisi nisl, convallis et augue sit amet, lobortis semper quam.
+                      Đây là trang bán đồng hồ thông minh dành cho người lớn và trẻ em.
                     </p>
                     <div class="btn-box">
                       <a href="" class="btn1">
-                        Contact Us
+                        Liên hệ với chúng tôi
                       </a>
                     </div>
                   </div>
@@ -157,64 +157,15 @@
     <div class="container">
       <div class="heading_container heading_center">
         <h2>
-          Latest Watches
+         	Sản phẩm được xem gần đây
         </h2>
       </div>
       <div class="row">
-        <div class="col-md-6 ">
-          <div class="box">
-            <a href="">
-              <div class="img-box">
-                <img src="images/w1.png" alt="">
-              </div>
-              <div class="detail-box">
-                <h6>
-                  Smartwatch
-                </h6>
-                <h6>
-                  Price:
-                  <span>
-                    $300
-                  </span>
-                </h6>
-              </div>
-              <div class="new">
-                <span>
-                  Featured
-                </span>
-              </div>
-            </a>
-          </div>
-        </div>
+
         
-        <div class="col-sm-6 col-xl-3">
-          <div class="box">
-            <a href="">
-              <div class="img-box">
-                <img src="images/w1.png" alt="">
-              </div>
-              <div class="detail-box">
-                <h6>
-                  Smartwatch
-                </h6>
-                <h6>
-                  Price:
-                  <span>
-                    $230
-                  </span>
-                </h6>
-              </div>
-              <div class="new">
-                <span>
-                  New
-                </span>
-              </div>
-            </a>
-          </div>
-        </div>
+
         
-        <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-        <c:forEach var="item" items="${products}">
+           <c:forEach var="item" items="${products}">
        
 			<div class="col-sm-6 col-xl-3">
 	          <div class="box">
@@ -275,17 +226,14 @@
           <div class="detail-box">
             <div class="heading_container">
               <h2>
-                About Us
+                Về chúng tôi
               </h2>
             </div>
             <p>
-              There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
-              in some form, by injected humour, or randomised words which don't look even slightly believable. If you
-              are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in
-              the middle of text. All
+              Nhóm sinh viên của Trường Đại Học Sư Phạm Kỹ Thuật TP.HCM
             </p>
             <a href="">
-              Read More
+              Tìm hiểu thêm
             </a>
           </div>
         </div>
@@ -301,10 +249,10 @@
     <div class="container">
       <div class="heading_container">
         <h2>
-          Features Of Our Watches
+          Các tính năng của đồng hồ của chúng tôi
         </h2>
         <p>
-          Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          
         </p>
       </div>
       <div class="row">
@@ -343,7 +291,7 @@
               </p>
               <a href="">
                 <span>
-                  Read More
+                  Đọc thêm
                 </span>
                 <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
               </a>
@@ -364,7 +312,7 @@
               </p>
               <a href="">
                 <span>
-                  Read More
+                  Đọc thêm
                 </span>
                 <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
               </a>
@@ -385,7 +333,7 @@
               </p>
               <a href="">
                 <span>
-                  Read More
+                 Đọc thêm
                 </span>
                 <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
               </a>
@@ -395,7 +343,7 @@
       </div>
       <div class="btn-box">
         <a href="">
-          View More
+          Xem thêm
         </a>
       </div>
     </div>
@@ -412,7 +360,7 @@
           <div class="form_container">
             <div class="heading_container">
               <h2>
-                Contact Us
+                Liên hệ với chúng tôi
               </h2>
             </div>
             <form action="">
@@ -430,7 +378,7 @@
               </div>
               <div class="d-flex ">
                 <button>
-                  SEND
+                  GỬI
                 </button>
               </div>
             </form>
@@ -452,7 +400,7 @@
     <div class="container">
       <div class="heading_container heading_center">
         <h2>
-          Testimonial
+          Những đánh giá
         </h2>
       </div>
       <div class="carousel-wrap ">
@@ -466,22 +414,16 @@
                 <div class="client_info">
                   <div class="client_name">
                     <h5>
-                      Mark Thomas
+                     Nguyễn Văn An
                     </h5>
                     <h6>
-                      Customer
+                      Khách hàng
                     </h6>
                   </div>
                   <i class="fa fa-quote-left" aria-hidden="true"></i>
                 </div>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                  labore
-                  et
-                  dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                  aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                  cillum
-                  dolore eu fugia
+                  Nhân viên thân thiện, hỗ trợ nhiệt tình. Nếu trong lúc ngồi đợi hoàn thành thủ tục mua hoặc xem. Có thêm khay kẹo hoặc ly nước thì tuyệt vời hơn nữa
                 </p>
               </div>
             </div>
@@ -495,22 +437,16 @@
                 <div class="client_info">
                   <div class="client_name">
                     <h5>
-                      Alina Hans
+                      Nguyễn Thị Mỹ Duyên
                     </h5>
                     <h6>
-                      Customer
+                      Khách hàng
                     </h6>
                   </div>
                   <i class="fa fa-quote-left" aria-hidden="true"></i>
                 </div>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                  labore
-                  et
-                  dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                  aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                  cillum
-                  dolore eu fugia
+                  Nhân viên thân thiện, hỗ trợ nhiệt tình. Nếu trong lúc ngồi đợi hoàn thành thủ tục mua hoặc xem. Có thêm khay kẹo hoặc ly nước thì tuyệt vời hơn nữa
                 </p>
               </div>
             </div>
