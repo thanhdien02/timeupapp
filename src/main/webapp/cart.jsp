@@ -159,14 +159,7 @@
                     <h3 class="text-black h4 text-uppercase">Tổng giỏ hàng</h3>
                   </div>
                 </div>
-                <div class="row mb-3">
-                  <div class="col-md-6">
-                    <span class="text-black">Phụ phí</span>
-                  </div>
-                  <div class="col-md-6 text-right">
-                    <strong class="text-black">$230.00</strong>
-                  </div>
-                </div>
+
                 <div class="row mb-5">
                   <div class="col-md-6">
                     <span class="text-black">Tổng</span>

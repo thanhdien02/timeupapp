@@ -53,25 +53,25 @@
           <div class="form_container">
             <div class="heading_container">
               <h2>
-                Contact Us
+                Liên lạc với chúng tôi
               </h2>
             </div>
             <form action="">
               <div>
-                <input type="text" placeholder="Full Name " />
+                <input type="text" placeholder="Họ và Tên " />
               </div>
               <div>
                 <input type="email" placeholder="Email" />
               </div>
               <div>
-                <input type="text" placeholder="Phone number" />
+                <input type="text" placeholder="Số điện thoại" />
               </div>
               <div>
-                <input type="text" class="message-box" placeholder="Message" />
+                <input type="text" class="message-box" placeholder="Tin nhắn gửi" />
               </div>
               <div class="d-flex ">
                 <button>
-                  SEND
+                  GỬI
                 </button>
               </div>
             </form>

@@ -71,7 +71,7 @@
 			
 			<!-- List product category -->
 			 <div class="details">
-                <div class="recentOrders">
+                <div class="recentOrders" style="display: block;">
                     <div class="cardHeader">
                         <h2>Nhà cung cấp gần đây</h2>
                         <a href="#" class="btn">Xem tất cả</a>

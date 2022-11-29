@@ -1,3 +1,4 @@
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <!DOCTYPE html>
@@ -180,7 +181,8 @@
 	                <h6>
 	                  Price:
 	                  <span>
-	                    ${item.price}
+	                    <fmt:setLocale value = "vi_VN"/>
+	                    <fmt:formatNumber value = "${item.price }" type = "currency"/>
 	                  </span>
 	                </h6>
 	              </div>
@@ -195,17 +197,9 @@
 		</c:forEach>
         
         
-   
         
       </div>
-      <form action="HomeServlet" method="post">
       
-	      <div class="btn-box">
-	      	
-	      	<input type="submit" value="View All 1">
-	        
-	      </div>
-      </form>
       
     </div>
   </section>
@@ -263,10 +257,10 @@
             </div>
             <div class="detail-box">
               <h5>
-                Fitness Tracking
+                Theo giỏi sức khỏe
               </h5>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                
               </p>
               <a href="">
                 <span>
@@ -284,10 +278,10 @@
             </div>
             <div class="detail-box">
               <h5>
-                Alerts & Notifications
+                Báo thức và thông báo
               </h5>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+               
               </p>
               <a href="">
                 <span>
@@ -308,7 +302,7 @@
                 Messages
               </h5>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                
               </p>
               <a href="">
                 <span>
@@ -329,7 +323,7 @@
                 Bluetooth
               </h5>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                
               </p>
               <a href="">
                 <span>

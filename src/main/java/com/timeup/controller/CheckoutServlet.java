@@ -84,6 +84,31 @@ public class CheckoutServlet extends HttpServlet {
 				}
 				
 			}
+ 			
+ 			// Load address len neu co
+			String username = "";
+			if(arr != null)
+			{
+				for (Cookie cookie : arr) {
+					if(cookie.getName().equals("username"))
+					{
+						username = cookie.getValue();
+					}
+
+				}
+			}
+			// Từ tên đăng nhập. Sẽ lấy được user. Trong user sẽ có địa chỉ của user
+			
+			User user = UserDAO.selectByUserName(username);
+			if(user != null)
+			{
+				
+				if(user.getAddress() != null)
+				{
+					request.setAttribute("user", user);
+				}
+				
+			}
 			
 			// Lấy mảng cookie.
 			//request.setAttribute("quatityproducts", storequatity);
@@ -226,6 +251,7 @@ public class CheckoutServlet extends HttpServlet {
 					
 					orderdetailDAO.insert(order_detail);					
 					
+					url = "/thankyou.jsp";
 				}
 
 			}

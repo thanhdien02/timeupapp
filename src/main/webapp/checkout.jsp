@@ -62,7 +62,7 @@
 	              <div class="form-group row">
 	                <div class="col-md-12">
 	                  <label for="c_address" class="text-black">Họ và Tên <span class="text-danger">*</span></label>
-	                  <input type="text" class="form-control" id="c_address" name="fullname" placeholder="Street address">
+	                  <input type="text" class="form-control" id="c_address" value="${user.fullName }" name="fullname" placeholder="Street address">
 	                </div>
 	                
 	              </div>
@@ -72,7 +72,7 @@
 	              <div class="form-group row">
 	                <div class="col-md-12">
 	                  <label for="c_address" class="text-black">Địa chỉ <span class="text-danger">*</span></label>
-	                  <input type="text" class="form-control" id="c_address" name="number_addess" placeholder="Số nhà" required>
+	                  <input type="text" class="form-control" id="c_address" value="${user.address[0].number_Home }" name="number_addess" placeholder="Số nhà" required>
 	                </div>
 	              </div>
 	
@@ -82,22 +82,22 @@
 	              
 	                <div class="col-md-6">
 	                  <label for="c_state_country" class="text-black">Thành phố <span class="text-danger">*</span></label>
-	                  <input type="text" class="form-control" id="c_state_country" name="city" placeholder="Thành phố" required>
+	                  <input type="text" class="form-control" id="c_state_country" value="${user.address[0].ciTy }" name="city" placeholder="Thành phố" required>
 	                </div>
 	                <div class="col-md-6">
 	                  <label for="c_postal_zip" class="text-black">Quận <span class="text-danger">*</span></label>
-	                  <input type="text" class="form-control" id="c_postal_zip" name="dicstrict" placeholder="Quận" required>
+	                  <input type="text" class="form-control" id="c_postal_zip" value="${user.address[0].dicstrict }" name="dicstrict" placeholder="Quận" required>
 	                </div>
 	              </div>
 	
 	              <div class="form-group row mb-5">
 	                <div class="col-md-6">
-	                  <label for="c_email_address" class="text-black">Huyện <span class="text-danger">*</span></label>
-	                  <input type="text" class="form-control" id="c_email_address" name="ward" placeholder="Huyện" required>
+	                  <label for="c_email_address" class="text-black">Phường <span class="text-danger">*</span></label>
+	                  <input type="text" class="form-control" id="c_email_address" value="${user.address[0].ward }" name="ward" placeholder="Phường" required>
 	                </div>
 	                <div class="col-md-6">
 	                  <label for="c_phone" class="text-black">Số điện thoại <span class="text-danger">*</span></label>
-	                  <input type="text" class="form-control" id="c_phone" name="phone" placeholder="Số điện thoại" required>
+	                  <input type="text" class="form-control" id="c_phone" value="${user.numberPhone }" name="phone" placeholder="Số điện thoại" required>
 	                </div>
 	              </div>
 	

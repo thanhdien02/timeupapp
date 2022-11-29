@@ -1,6 +1,7 @@
 package com.timeup.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -10,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.timeup.business.User;
+import com.timeup.business.Product;
+import com.timeup.dao.ProductDAO;
 import com.timeup.dao.UserDAO;
 
 
@@ -18,6 +21,9 @@ public class UserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+
+		
 		String url = "/admin_user.jsp";
 		List<User> users =  UserDAO.selectUsers();
 		if(users != null)

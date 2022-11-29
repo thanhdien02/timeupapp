@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -41,7 +42,7 @@
 				
 			<div class="addproduct_catedory"> <!-- đặt nó ở trong form rồi thêm loại sản phẩm cho nó mà tôi -->
 				<h2>Thêm loại sản phẩm mới</h2>
-				 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+				 
 				<c:if test="${kiemtra == 'datontai'}">
 		        	<p style="color: red;margin-top: -35px;margin-bottom: 20px;margin-left: -255px;">Loại sản phẩm này đã có trong kho</p>
 		   		 </c:if>
@@ -56,9 +57,9 @@
 			
 			<!-- List product category -->
 			 <div class="details">
-                <div class="recentOrders">
+                <div class="recentOrders" style="display: block;">
                     <div class="cardHeader">
-                        <h2>Sản phẩm gần đây</h2>
+                        <h2>Các loại sản phẩm gần đây</h2>
                         <a href="#" class="btn">Xem tất cả</a>
                     </div>
 
@@ -66,8 +67,7 @@
                         <thead>
                             <tr>
                                 <td>Tên loại</td>
-                                <td>Giá</td>
-                                <td>Số lượng còn</td>
+                                
                                 <td>Cập nhật</td>
                             </tr>
                         </thead>
@@ -78,9 +78,6 @@
 							<c:forEach var="item" items="${product_categorys}">
 							  <tr>
                                 <td>${item.nameCategory}</td>
-                                <td>$1200</td>
-                                <td>Paid</td>
-
 								<td>
 									<form action="ProductCategory" method="post">
 										

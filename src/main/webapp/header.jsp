@@ -17,6 +17,7 @@
   <title>Timups</title>
 
 
+	
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
   <!--owl slider stylesheet -->
@@ -24,6 +25,7 @@
 
   <!-- font awesome style -->
   <link href="css/font-awesome.min.css" rel="stylesheet" />
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
   <!-- Custom styles for this template -->
   <link href="css/style.css" rel="stylesheet" />
@@ -60,11 +62,14 @@
               </li>
             </ul>
             <div class="user_option-box">
+            <a href="./Login">
+                <i class="bx bxs-user-check" aria-hidden="true" title="Trang cá nhân" style="font-size: 25px;padding-top: 6px;"></i>
+              </a>
               <a href="./Login">
-                <i class="fa fa-user" aria-hidden="true"></i>
+                <i class="fa fa-user" aria-hidden="true" title="Đăng nhập / Đăng xuất"></i>
               </a>
               <a href="./CartServlet">
-                <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                <i class="fa fa-cart-plus" aria-hidden="true" title="Giỏ hàng"></i>
               </a>
               <a href="">
                 <i class="fa fa-search" aria-hidden="true"></i>

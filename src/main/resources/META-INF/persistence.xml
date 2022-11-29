@@ -4,6 +4,8 @@
   http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd" version="2.1">
     <persistence-unit name="timeupWeb">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        
+        <!-- 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
             <property name="javax.persistence.schema-generation.database.action" value="none"/>
@@ -15,6 +17,17 @@
             <property name="hibernate.format_sql" value="false" />
             <property name="hibernate.use_sql_comments" value="true" />
         </properties>
+        
+         -->
+        	<properties>
+			
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://us-cdbr-east-06.cleardb.net/heroku_18e4432fbc96758?reconnect=true;characterEncoding=UTF-8" />
+			<property name="javax.persistence.jdbc.user" value="bb85f98cfd4903" />
+			<property name="javax.persistence.jdbc.password" value="41be6844" />
+			<property name="javax.persistence.schema-generation.database.action" 
+                value="update"/>			
+		</properties>
     </persistence-unit>
 </persistence>
 

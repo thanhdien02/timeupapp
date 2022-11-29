@@ -59,8 +59,8 @@
                         <thead>
                             <tr>
                                 <td>Tên</td>
-                                <td>Giá</td>
-                                <td>Số lượng còn</td>
+                                
+                                
                                 <td>Lựa chọn loại hàng thêm sản phẩm</td>
                             </tr>
                         </thead>
@@ -71,8 +71,8 @@
 							<c:forEach var="item" items="${product_categorys}">
 							  <tr>
                                 <td>${item.nameCategory}</td>
-                                <td>$1200</td>
-                                <td>Paid</td>
+                                
+                                
 
 								<td>
 									<form action="Product_selectcategory" method="post">

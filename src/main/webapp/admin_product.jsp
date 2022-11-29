@@ -1,3 +1,5 @@
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -16,7 +18,7 @@
 <body>
     <!-- =============== Navigation ================ -->
     <div class="container">
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    
     <!-- Header -->
     <jsp:include page="admin_menu.jsp" /> 
 
@@ -42,39 +44,12 @@
             <!-- ======================= Cards ================== -->
             <div class="cardBox">
                 <form action="ProductAdmin" method="post">
-	                <div class="card">
-	                	 	
-								<input type="hidden" name="action" value="load">
-		                        <input class="cardName" type="submit" value="Thêm sản phẩm">
-\                  
-	
-	                    <div class="iconBx">
-	                        <ion-icon name="eye-outline"></ion-icon>
-	                    </div>
-	                </div>
+					<input type="hidden" name="action" value="load">
+		            <input class="cardName" type="submit" value="Thêm sản phẩm" class="card" style="height: 100%;width: 100%;padding: 30px;border-radius: 20px;cursor: pointer;background: var(--blue);color: white;font-size: 23px;border: none;">                
+	               
                 </form>
 
-                <div class="card">
-                    <div>
-                        <div class="numbers">80</div>
-                        <div class="cardName">Đơn hàng</div>
-                    </div>
-
-                    <div class="iconBx">
-                        <ion-icon name="cart-outline"></ion-icon>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div>
-                        <div class="numbers">284</div>
-                        <div class="cardName">Sản phẩm</div>
-                    </div>
-
-                    <div class="iconBx">
-                        <ion-icon name="chatbubbles-outline"></ion-icon>
-                    </div>
-                </div>
+               
 
                 <div class="card">
                     <div>
@@ -90,7 +65,7 @@
 
             <!-- ================ Order Details List ================= -->
             <div class="details">
-                <div class="recentOrders">
+                <div class="recentOrders" style="display: block;">
                     <div class="cardHeader">
                         <h2>Sản phẩm gần đây</h2>
                         <a href="#" class="btn">Xem tất cả</a>
@@ -111,7 +86,11 @@
                         	<c:forEach var="item" items="${products}">
 							  <tr>
                                 <td>${item.nameProduct}</td>
-                                <td>${item.price}</td>
+                                <td>
+                                	<fmt:setLocale value = "vi_VN"/>
+	                    			<fmt:formatNumber value = "${item.price}" type = "currency"/>
+                                
+                                </td>
                                 <td>${item.number_remain}</td>
 
 								<td>

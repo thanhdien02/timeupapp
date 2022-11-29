@@ -29,15 +29,17 @@
                 </li>
 
                 <li>
-                    <a href="./admin.jsp">
-                        <span class="icon">
+                    <a href="ProviderServlet">
+                    
+                    	<span class="icon">
                             <ion-icon name="home-outline"></ion-icon>
                         </span>
-                        <span class="title">Trang chủ</span>
+                        
+                        <span class="title">Nhà cung cấp</span>
                     </a>
                 </li>
 				<li>
-                    <a href="#">
+                    <a href="OrderServlet">
                         <span class="icon">
                             <i class='bx bx-cart' style="font-size: 29px;"></i>
                         </span>
@@ -71,16 +73,17 @@
                     </a>
                 </li>
 
+                
+
                 <li>
-                    <a href="ProviderServlet">
-                        <span class="icon">
+                	
+                    <a href="ImportProductServlet">
+                       <span class="icon">
                             <i class='bx bx-import' style="font-size: 29px;"></i>
-                        </span>
-                        <span class="title">Nhà cung cấp</span>
+                    </span>
+                        <span class="title">Nhập hàng</span>
                     </a>
                 </li>
-
-                
 
                 <li>
                     <a href="#">

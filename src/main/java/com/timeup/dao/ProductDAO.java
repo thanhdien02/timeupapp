@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.NoResultException;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 import com.timeup.business.Product;
@@ -18,6 +19,8 @@ public class ProductDAO  extends AbstractDAO<Product> {
 	{
 		super(Product.class);
 	}
+	
+	
     public static List<Product> selectProducts() {
         EntityManager em = DBUtil.getEmFactory();
         String qString = "SELECT u from Product u";

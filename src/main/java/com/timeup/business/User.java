@@ -22,10 +22,26 @@ public class User implements Serializable {
     private Long userId;
     
     
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user",fetch = FetchType.EAGER , cascade = CascadeType.ALL)
     private List<Address> address;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    public List<Address> getAddress() {
+		return address;
+	}
+
+	public void setAddress(List<Address> address) {
+		this.address = address;
+	}
+
+	public List<Order> getOrder() {
+		return order;
+	}
+
+	public void setOrder(List<Order> order) {
+		this.order = order;
+	}
+
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Order> order;
     
     @Column(unique=true, nullable = false)

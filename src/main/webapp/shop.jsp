@@ -1,3 +1,5 @@
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -16,7 +18,7 @@
     <link rel="stylesheet" href="./assets-cart/css/owl.carousel.min.css">
     <link rel="stylesheet" href="./assets-cart/css/owl.theme.default.min.css">
 
-
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="./assets-cart/css/aos.css">
 
     <link rel="stylesheet" href="./assets-cart/css/style.css">
@@ -25,7 +27,7 @@
   <body>
   
   <div class="site-wrap">
- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+ 
 
 
     <!-- Header -->
@@ -51,25 +53,14 @@
                 <div class="d-flex">
                   <div class="dropdown mr-1 ml-md-auto">
                     <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Latest
+                      Gần đây
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-                      <a class="dropdown-item" href="#">Men</a>
-                      <a class="dropdown-item" href="#">Women</a>
-                      <a class="dropdown-item" href="#">Children</a>
+                      <a class="dropdown-item" href="./Product?action=nguoilon">Người lớn</a>
+                      <a class="dropdown-item" href="./Product?action=treem">Trẻ em</a>
                     </div>
                   </div>
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" id="dropdownMenuReference" data-toggle="dropdown">Reference</button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuReference">
-                      <a class="dropdown-item" href="#">Relevance</a>
-                      <a class="dropdown-item" href="#">Name, A to Z</a>
-                      <a class="dropdown-item" href="#">Name, Z to A</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Price, low to high</a>
-                      <a class="dropdown-item" href="#">Price, high to low</a>
-                    </div>
-                  </div>
+
                 </div>
               </div>
             </div>
@@ -88,7 +79,12 @@
                   <div class="block-4-text p-4">
                     <h3><a href="./ProductServlet?id=${item.productId}">${item.nameProduct}</a></h3>
                     <p class="mb-0">Finding perfect products</p>
-                    <p class="text-primary font-weight-bold">${item.price}</p>
+                    <p class="text-primary font-weight-bold">
+                    
+                    	<fmt:setLocale value = "vi_VN"/>
+	                    <fmt:formatNumber value = "${item.price }" type = "currency"/>
+                    
+                    </p>
                   </div>
                 </div>
               </div>
@@ -122,7 +118,7 @@
               
                 
                 <c:forEach var="item" items="${product_categorys}">
-              		<li class="mb-1"><a href="#" class="d-flex"><span>${item.nameCategory}</span> <span class="text-black ml-auto">(2,220)</span></a></li>
+              		<li class="mb-1"><a href="./Product?action=${item.nameCategory}" class="d-flex"><span>${item.nameCategory}</span> <span class="text-black ml-auto">(2,220)</span></a></li>
 				</c:forEach>
                 
                 

@@ -1,3 +1,4 @@
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -8,8 +9,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="apple-touch-icon" href="assets/img/apple-icon.png">
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
 
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/templatemo.css">
@@ -22,6 +21,7 @@
     <!-- Slick -->
     <link rel="stylesheet" type="text/css" href="assets/css/slick.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/slick-theme.css">
+     <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
 <!--
     
 TemplateMo 559 Zay Shop
@@ -163,7 +163,7 @@ https://templatemo.com/tm-559-zay-shop
                     <div class="card">
                         <div class="card-body">
                             <h1 class="h2">${product.nameProduct }</h1>
-                            <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+                            
                             <p class="h3 py-2">
                             <fmt:setLocale value = "vi_VN"/>
                             <fmt:formatNumber value = "${product.price }" type = "currency"/>
@@ -296,7 +296,12 @@ https://templatemo.com/tm-559-zay-shop
 	                                </li>
 	                            </ul>
 	                            
-	                            <p class="text-center mb-0">${item.price }</p>
+	                            <p class="text-center mb-0">
+	                            
+		                            <fmt:setLocale value = "vi_VN"/>
+	                            	<fmt:formatNumber value = "${item.price }" type = "currency"/>
+	                            
+	                            </p>
 	                        </div>
 	                    </div>
 	                </div>

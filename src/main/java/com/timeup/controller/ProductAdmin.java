@@ -111,11 +111,11 @@ public class ProductAdmin extends HttpServlet {
 			product.setPd_category(pdcate);
 			
 			// specifition
-			Product_specification pdspeci = new Product_specification();
-			pdspeci = Product_specificationDAO.selectOneByName(color, usetime, origin);
+//			Product_specification pdspeci = new Product_specification();
+//			pdspeci = Product_specificationDAO.selectOneByName(color, usetime, origin);
 			
 			
-			product.setPd_specification(pdspeci);
+			product.setPd_specification(pdspecification);
 			
 			request.setAttribute("productadd", product);
 			

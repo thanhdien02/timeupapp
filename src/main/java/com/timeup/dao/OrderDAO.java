@@ -1,5 +1,7 @@
 package com.timeup.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
@@ -13,6 +15,26 @@ public class OrderDAO extends AbstractDAO<Order>{
 	{
 		super(Order.class);
 	}
+	
+	public static List<Order> selectOrders() {
+        EntityManager em = DBUtil.getEmFactory();
+        String qString = "SELECT u from Order u";
+        TypedQuery<Order> q = em.createQuery(qString, Order.class);
+
+        List<Order> orders;
+        try {
+        	orders = q.getResultList();
+            if (orders == null || orders.isEmpty())
+            {
+            	orders = null;
+            	return orders;
+            }
+
+        } finally {
+            em.close();
+        }
+        return orders;
+    }
 //    public static Order selectOneByName(String note_custumer, Long priceSum, Long userId) {
 //        EntityManager em = DBUtil.getEmFactory();
 //        String qString = "SELECT u FROM Order u " +
