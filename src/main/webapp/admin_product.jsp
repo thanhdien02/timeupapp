@@ -46,9 +46,7 @@
 	                	 	
 								<input type="hidden" name="action" value="load">
 		                        <input class="cardName" type="submit" value="Thêm sản phẩm">
-		               
-	                   		 
-	                   
+\                  
 	
 	                    <div class="iconBx">
 	                        <ion-icon name="eye-outline"></ion-icon>

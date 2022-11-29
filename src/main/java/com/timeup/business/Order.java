@@ -1,6 +1,7 @@
 package com.timeup.business;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -11,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -26,6 +28,7 @@ public class Order implements Serializable{
 
 	private Long priceSum;
 	
+	
 	@OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
 	private List<Order_detail> order_details;
 	
@@ -33,8 +36,42 @@ public class Order implements Serializable{
 	@JoinColumn(name = "userId")
 	private User user;
 	
-	@Temporal(TemporalType.DATE)
-	private Date dateShip;
+	public List<Order_detail> getOrder_details() {
+		return order_details;
+	}
+
+	public void setOrder_details(List<Order_detail> order_details) {
+		this.order_details = order_details;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	private LocalDateTime dateShip;
+	
+	public LocalDateTime getDateShip() {
+		return dateShip;
+	}
+
+	public void setDateShip(LocalDateTime dateShip) {
+		this.dateShip = dateShip;
+	}
+
+	@Lob
+	private String note_custumer; 
+
+	public String getNote_custumer() {
+		return note_custumer;
+	}
+
+	public void setNote_custumer(String note_custumer) {
+		this.note_custumer = note_custumer;
+	}
 
 	public Long getOrderId() {
 		return orderId;
@@ -52,12 +89,5 @@ public class Order implements Serializable{
 		this.priceSum = priceSum;
 	}
 
-	public Date getDateShip() {
-		return dateShip;
-	}
-	
-	public void setDateShip(Date dateShip) {
-		this.dateShip = dateShip;
-	}
 	
 }

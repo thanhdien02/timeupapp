@@ -1,6 +1,7 @@
 package com.timeup.business;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -51,16 +52,18 @@ public class Import_Product implements Serializable{
 		this.product = product;
 	}
 
-	public Date getDate_import() {
+
+
+	// Date nhập
+
+	private LocalDateTime date_import;
+
+	public LocalDateTime getDate_import() {
 		return date_import;
 	}
 
-	public void setDate_import(Date date_import) {
+	public void setDate_import(LocalDateTime date_import) {
 		this.date_import = date_import;
 	}
-
-	// Date nhập
-	@Temporal(TemporalType.DATE)
-	private Date date_import;
 	
 }

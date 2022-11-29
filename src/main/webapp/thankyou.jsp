@@ -44,9 +44,9 @@
         <div class="row">
           <div class="col-md-12 text-center">
             <span class="icon-check_circle display-3 text-success"></span>
-            <h2 class="display-3 text-black">Thank you!</h2>
-            <p class="lead mb-5">You order was successfuly completed.</p>
-            <p><a href="shop.html" class="btn btn-sm btn-primary">Back to shop</a></p>
+            <h2 class="display-3 text-black">Cảm ơn bạn!</h2>
+            <p class="lead mb-5">Đơn hàng của bạn đã được đặt thành công.</p>
+            <p><a href="HomeServlet" class="btn btn-sm btn-primary">Quay lại tiếp tục mua sắm</a></p>
           </div>
         </div>
       </div>

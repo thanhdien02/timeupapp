@@ -1,6 +1,7 @@
 package com.timeup.controller;
 
 import java.io.IOException;
+import java.lang.ProcessBuilder.Redirect;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -16,6 +17,7 @@ import javax.swing.text.Document;
 import org.apache.tomcat.util.http.ServerCookie;
 
 import com.timeup.data.CookieUtil;
+import com.timeup.data.DeleteCookie;
 import com.timeup.business.Product;
 import com.timeup.dao.ProductDAO;
 
@@ -92,6 +94,7 @@ public class CartServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
+		
 		String url = "/admin.jsp";
 		
 
@@ -107,6 +110,10 @@ public class CartServlet extends HttpServlet {
 		{
 			String iddelete = request.getParameter("iddelete");
 			
+			// Xóa id lưu quatity ra khỏi cookie
+	        Cookie []arrcookie = request.getCookies();
+	        DeleteCookie.deleteOneCookie(request, response, arrcookie, iddelete);
+	        
 			// Chắc chắn là có bên trong đó rồi.
 			iddelete +="@";
 			String lid = CookieUtil.getCookieValue(arr, "id");
@@ -118,6 +125,7 @@ public class CartServlet extends HttpServlet {
 	        ID.setPath("/");                      // allow entire app to access it
 	        response.addCookie(ID);
 	        //doGet(request, response);
+	        
 	        
 	        
 	        //
@@ -340,7 +348,10 @@ public class CartServlet extends HttpServlet {
 						//cookie.setValue(id);
 					}
 				}
-				url = "/ProductServlet";
+				
+					url = "/ProductServlet";
+				
+				
 			}
 		}
 

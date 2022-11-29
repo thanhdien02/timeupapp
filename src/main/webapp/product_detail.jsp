@@ -77,17 +77,17 @@ https://templatemo.com/tm-559-zay-shop
                                     <div class="row">
                                         <div class="col-4">
                                             <a href="#">
-                                                <img class="card-img img-fluid" src="${product.products_image[1].image_path}" alt="Product Image 1">
+                                                <img class="card-img img-fluid" src="${product.products_image[0].image_path}" alt="Product Image 1">
                                             </a>
                                         </div>
                                         <div class="col-4">
                                             <a href="#">
-                                                <img class="card-img img-fluid" src="${product.products_image[0].image_path}" alt="Product Image 2">
+                                                <img class="card-img img-fluid" src="${product.products_image[1].image_path}" alt="Product Image 2">
                                             </a>
                                         </div>
                                         <div class="col-4">
                                             <a href="#">
-                                                <img class="card-img img-fluid" src="${product.products_image[1].image_path}" alt="Product Image 3">
+                                                <img class="card-img img-fluid" src="${product.products_image[2].image_path}" alt="Product Image 3">
                                             </a>
                                         </div>
                                     </div>
@@ -109,7 +109,7 @@ https://templatemo.com/tm-559-zay-shop
                                         </div>
                                         <div class="col-4">
                                             <a href="#">
-                                                <img class="card-img img-fluid" src="${product.products_image[1].image_path}" alt="Product Image 6">
+                                                <img class="card-img img-fluid" src="${product.products_image[2].image_path}" alt="Product Image 6">
                                             </a>
                                         </div>
                                     </div>
@@ -131,7 +131,7 @@ https://templatemo.com/tm-559-zay-shop
                                         </div>
                                         <div class="col-4">
                                             <a href="#">
-                                                <img class="card-img img-fluid" src="${product.products_image[1].image_path}" alt="Product Image 6">
+                                                <img class="card-img img-fluid" src="${product.products_image[2].image_path}" alt="Product Image 6">
                                             </a>
                                         </div>
                                     </div>
@@ -230,9 +230,6 @@ https://templatemo.com/tm-559-zay-shop
                             
                                 <div class="row pb-3">
                                     <div class="col d-grid">
-                                        <button type="submit" class="btn btn-success btn-lg" name="submit" value="buy">Mua</button>
-                                    </div>
-                                    <div class="col d-grid">
                                     	<input type="hidden" name="action" value="addproduct">
                                     	<input type="hidden" name="id" value="${product.productId }">
                                         <input type="submit" class="btn btn-success btn-lg" name="submit" value="Thêm vào giỏ hàng">
@@ -280,14 +277,14 @@ https://templatemo.com/tm-559-zay-shop
 	                            <img class="card-img rounded-0 img-fluid" src="${item.products_image[0].image_path }">
 	                            <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
 	                                <ul class="list-unstyled">
-	                                    <li><a class="btn btn-success text-white" href="shop-single.html"><i class="far fa-heart"></i></a></li>
-	                                    <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="far fa-eye"></i></a></li>
-	                                    <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
+	                                    <li><a class="btn btn-success text-white" href="./ProductServlet?id=${item.productId}"><i class="far fa-heart"></i></a></li>
+	                                    <li><a class="btn btn-success text-white mt-2" href="./ProductServlet?id=${item.productId}"><i class="far fa-eye"></i></a></li>
+	                                    <li><a class="btn btn-success text-white mt-2" href="./ProductServlet?id=${item.productId}"><i class="fas fa-cart-plus"></i></a></li>
 	                                </ul>
 	                            </div>
 	                        </div>
 	                        <div class="card-body">
-	                            <a href="shop-single.html" class="h3 text-decoration-none">${item.nameProduct }</a>
+	                            <a href="./ProductServlet?id=${item.productId}" class="h3 text-decoration-none">${item.nameProduct }</a>
 	                            <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
 	                                <li>M/L/X/XL</li>
 	                                <li class="pt-2">

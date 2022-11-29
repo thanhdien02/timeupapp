@@ -46,6 +46,22 @@ public class UserDAO {
             em.close();
         }
     }
+    
+    public static User selectByUserName(String nameLogin) {
+        EntityManager em = DBUtil.getEmFactory();
+        String qString = "SELECT u FROM User u " +
+                "WHERE u.nameLogin = :nameLogin";
+        TypedQuery<User> q = em.createQuery(qString, User.class);
+        q.setParameter("nameLogin", nameLogin);
+        try {
+        	User user = q.getSingleResult();
+            return user;
+        } catch (NoResultException e) {
+            return null;
+        } finally {
+            em.close();
+        }
+    }
 	
     public static void insert(User user)
     

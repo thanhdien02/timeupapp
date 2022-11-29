@@ -68,7 +68,6 @@
                 <!-- List cart -->
 
 		        <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-		        <% int n = 0; %>
 		        <c:forEach var="item" items="${products}">
 		       	 <tr>
                     <td class="product-thumbnail">
@@ -186,7 +185,7 @@
                 
                 <form action="CheckoutServlet" method="get">
 	                <div class="col-md-12">
-	                    <button class="btn btn-primary btn-lg py-3 btn-block" onclick="window.location='checkout.jsp'">Tiến hành thanh toán</button>
+	                    <button class="btn btn-primary btn-lg py-3 btn-block" type="submit">Tiến hành thanh toán</button>
 	                 </div>
                 
                 </form>
