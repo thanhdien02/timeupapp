@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -8,10 +9,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nhập thêm sản phẩm</title>
+    <title>Đơn hàng</title>
     <!-- ======= Styles ====== -->
   <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
-  <link rel="stylesheet" href="./assets-admin/css/style_product_import.css">
+  <link rel="stylesheet" href="assets-admin/css/style_product_order.css">
 </head>
 
 <body>
@@ -39,49 +40,43 @@
             </div>
 			
 				
-			<div class="addproduct_catedory" style="text-align: center;"> <!-- đặt nó ở trong form rồi thêm loại sản phẩm cho nó mà tôi -->
-				<h2 style="font-size: 45px;margin: 60px 0;font-weight: 600;color: var(--blue);">Nhập thêm hàng vào kho</h2>
-				 
-				<form action="ProductCategory" method="post">
-					<input type="hidden" name="action" value="add">
-					<input type="text" required placeholder="Tên loại sản phẩm" class="name_cate" name="namecategory">
-					<input type="submit" value="Thêm loại sản phẩm" class="submit_cate">
-				</form>
+			<div class="addproduct_catedory"> <!-- đặt nó ở trong form rồi thêm loại sản phẩm cho nó mà tôi -->
+				<h2 style="text-align: center;margin-top: 50px;font-size: 40px;">Chi tiết đơn hàng</h2>
+				 	
 			
 			</div>
-
+			
+			
 			<!-- List product category -->
 			 <div class="details">
-                <div class="recentOrders" style="display: block;">
+                <div class="recentOrders" style="display: block;"	>
                     <div class="cardHeader">
-                        <h2>Các loại sản phẩm gần đây</h2>
-                        <a href="#" class="btn">Xem tất cả</a>
+                        <h2>Danh sách các sản phẩm trong đơn hàng</h2>
+
                     </div>
 
                     <table>
                         <thead>
                             <tr>
-                                <td>Tên loại</td>
-                                <td>Cập nhật</td>
+                                <td>Tên sản phẩm</td>       
+                                <td>Số lượng đặt</td>
+                                <td>Giá sản phẩm</td>
                             </tr>
                         </thead>
 
                         <tbody>
-                       
-                            
-							<c:forEach var="item" items="${product_categorys}">
+ 
+							<c:forEach var="item" items="${order_details}">
 							  <tr>
-                                <td>${item.nameCategory}</td>
-								<td>
-									<form action="ProductCategory" method="post">
-										
-										<input type="hidden" name="action" value="delete">
-										<input type="hidden" name="namecate" value="<c:out value='${item.nameCategory}'/>">
-										<input type="submit" value="Xóa" class="status delivered" style="background: red">
-									</form>
-								</td>
+                                <td>${item.product.nameProduct}</td>
+								<td>${item.number}</td>
 								
-                                
+								
+								<td>
+									<fmt:setLocale value = "vi_VN"/>
+	                    			<fmt:formatNumber value = "${item.price}" type = "currency"/>
+								</td>
+
                             </tr>
 							</c:forEach>
                       

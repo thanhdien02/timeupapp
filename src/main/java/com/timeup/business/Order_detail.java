@@ -17,7 +17,18 @@ public class Order_detail implements Serializable{
 	
 	private Long price;
 	
+	private Long number;
 	
+	public Long getNumber() {
+		return number;
+	}
+
+
+	public void setNumber(Long number) {
+		this.number = number;
+	}
+
+
 	@ManyToOne
 	@JoinColumn(name = "orderId")
 	private Order order;

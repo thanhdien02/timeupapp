@@ -79,7 +79,7 @@
 										
 										<input type="hidden" name="action" value="insertproduct"> <!-- Lấy cái tên của nó ra rồi đi select là được -->
 										<input type="hidden" name="namecate" value="<c:out value='${item.nameCategory}'/>">
-										<input type="submit" value="Chọn" class="status delivered">
+										<input type="submit" value="Chọn" style="width: 130px;height: 36px;" class="status delivered">
 									</form>
 								</td>
 								

@@ -190,7 +190,7 @@ https://templatemo.com/tm-559-zay-shop
                             <p>${product.pd_specification.desciption }</p>
                             <ul class="list-inline">
                                 <li class="list-inline-item">
-                                    <h6>Color :</h6>
+                                    <h6>Màu :</h6>
                                 </li>
                                 <li class="list-inline-item">
                                     <p class="text-muted"><strong>${product.pd_specification.color }</strong></p>

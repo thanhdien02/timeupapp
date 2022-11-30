@@ -12,13 +12,12 @@
     <title>Đơn hàng</title>
     <!-- ======= Styles ====== -->
   <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
-  <link rel="stylesheet" href="./assets-admin/css/style_product_order.css">
+  <link rel="stylesheet" href="assets-admin/css/style_product_order.css">
 </head>
 
 <body>
     <!-- =============== Navigation ================ -->
     <div class="container">
-     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <!-- Header -->
     <jsp:include page="admin_menu.jsp" /> 
         
@@ -62,6 +61,7 @@
                                 <td>Tên người đặt</td>       
                                 <td>Ngày đặt hàng</td>
                                 <td>Tổng đơn hàng</td>
+                                <td>Chi tiết đơn hàng</td>
                             </tr>
                         </thead>
 
@@ -77,7 +77,15 @@
 									<fmt:setLocale value = "vi_VN"/>
 	                    			<fmt:formatNumber value = "${item.priceSum}" type = "currency"/>
 								</td>
-
+								<td>
+									<form action="OrderdetailServlet" method="post">
+										
+										<input type="hidden" name="action" value="admin">
+										<input type="hidden" name="idorder" value="${item.orderId }">
+										<input type="submit" style="border: none;width: 120px;height: 35px;" value="Chi tiết" class="status delivered">
+									</form>
+								
+								</td>
                             </tr>
 							</c:forEach>
                       

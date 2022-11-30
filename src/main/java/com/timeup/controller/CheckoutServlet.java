@@ -248,14 +248,32 @@ public class CheckoutServlet extends HttpServlet {
 					order_detail.setPrice(product.getPrice());
 					order_detail.setProduct(product);
 					order_detail.setOrder(order);
-					
+					// Lấy số lượng sản phẩm đặt từ cookie giỏ hàng
+					for(Cookie cookie: arr)
+					{
+						if(string.equals(cookie.getName()))
+						{
+							
+							// Xử lí để lấy và đưa số lượng sản phẩm lên trên đó. 
+							//storequatity.add(Integer.parseInt(string));
+							if(product != null)
+							{
+								// Lấy quantity trong cookie
+								Long quatity = Long.parseLong(cookie.getValue());
+								order_detail.setNumber(quatity);
+								break;
+							}
+							
+						}
+					}
+
 					orderdetailDAO.insert(order_detail);					
 					
-					url = "/thankyou.jsp";
+					
 				}
 
 			}
-			
+			url = "/thankyou.jsp";
 			// List nó ra
 			
 		}

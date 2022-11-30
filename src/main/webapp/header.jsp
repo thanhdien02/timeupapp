@@ -35,7 +35,7 @@
 <body>
 	 <header class="header_section">
       <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg custom_nav-container ">
+        <nav class="navbar navbar-expand-lg custom_nav-container " style="padding-right: 40px;">
           <a class="navbar-brand" href="index.jsp">
             <span>
               Timups
@@ -62,8 +62,8 @@
               </li>
             </ul>
             <div class="user_option-box">
-            <a href="./Login">
-                <i class="bx bxs-user-check" aria-hidden="true" title="Trang cá nhân" style="font-size: 25px;padding-top: 6px;"></i>
+            <a href="./OrderSelfServlet" style="font-size: 16px;text-transform: none;">
+                Đơn hàng
               </a>
               <a href="./Login">
                 <i class="fa fa-user" aria-hidden="true" title="Đăng nhập / Đăng xuất"></i>

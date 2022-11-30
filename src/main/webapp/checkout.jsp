@@ -113,9 +113,7 @@
 	                  </div>
 	                </div>
 	              </div>
-	
-	
-	            
+
 	              <div class="form-group">
 	                <label for="c_order_notes" class="text-black">Ghi chú thêm</label>
 	                <textarea name="order_note" id="c_order_notes" cols="30" rows="5" class="form-control" placeholder="Viết lưu ý vào đây...."></textarea>

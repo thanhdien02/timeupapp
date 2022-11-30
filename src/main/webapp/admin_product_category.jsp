@@ -17,7 +17,7 @@
 <body>
     <!-- =============== Navigation ================ -->
     <div class="container">
-     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
     <!-- Header -->
     <jsp:include page="admin_menu.jsp" /> 
         

@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="./assets-cart/css/aos.css">
 
     <link rel="stylesheet" href="./assets-cart/css/style.css">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
     
   </head>
   <body>
@@ -44,10 +45,7 @@
     <div class="site-section">
       <div class="container">
         <div class="row mb-5">
-        
-        
-          
-          
+           
           
             <div class="site-blocks-table">
               <table class="table table-bordered">
