@@ -36,61 +36,34 @@
                 <div class="user">
                     <img src="./assets-admin/imgs/customer01.jpg" alt="">
                 </div>
-            </div>
-			
+            </div>	
 				
 			<div class="addproduct_catedory" style="text-align: center;"> <!-- đặt nó ở trong form rồi thêm loại sản phẩm cho nó mà tôi -->
 				<h2 style="font-size: 45px;margin: 60px 0;font-weight: 600;color: var(--blue);">Nhập thêm hàng vào kho</h2>
-				 <h2 style="margin-bottom: 24px;">Tên sản phẩm: ${product.nameProduct }</h2>
-				<form action="ProductCategory" method="post">
+			<form action="ImportProductServlet" method="post">
+				<div class="form-group" style="text-align: initial;padding-left: 300px;font-size: 25px;">
+	                <label for="c_country" style="" class="text-black">Lựa chọn nhà cung cấp<span class="text-danger">*</span></label>
+	                <select id="c_country" name="idprovider" class="form-control" style="height: calc(2.25rem + 2px);padding: 0.375rem 0.75rem;font-size: 1rem;background-color: #fff;background-clip: padding-box;border: 1px solid #ced4da;border-radius: 0.25rem;">  
+	                   
+	                  <c:forEach var="item" items="${providers}">
+	                  	<option value="${item.providerId }">${item.nameProvider }</option>    
+	                  </c:forEach>
+	                  
+	                </select>
+				 <h4 style="margin-bottom: 24px;margin-top: 10px;">Tên sản phẩm: ${product.nameProduct }</h4>
+              </div>
 				
-					<input type="hidden" name="idproduct" value="${product.productId } ">
+				
+					<input type="hidden" name="idproduct" value="${product.productId }">
 					<input type="hidden" name="action" value="updatenumberproduct">
-					<input type="text" required placeholder="Số lượng nhập vào" class="name_cate" name="namecategory" style="height: 40px;border-radius: 40px;padding: 5px 20px;padding-left: 20px;padding-left: 35px;font-size: 18px;outline: none;border: 1px solid var(--black2);">
+					<input type="text" required placeholder="Số lượng nhập vào" class="name_cate" name="numberadd" style="height: 40px;border-radius: 40px;padding: 5px 20px;padding-left: 20px;padding-left: 35px;font-size: 18px;outline: none;border: 1px solid var(--black2);">
 					<input type="submit" value="Nhập vào kho" class="submit_cate" style="height: 40px;border-radius: 40px;padding: 5px 20px;padding-left: 20px;padding-left: 35px;font-size: 18px;outline: none;background: #2a2185;border: 1px solid var(--black2);color: white;">
-				</form>
+			</form>
 			
 			</div>
 
 			<!-- List product category -->
-			 <div class="details">
-                <div class="recentOrders" style="display: block;">
-                    <div class="cardHeader">
-                        <h2>Các loại sản phẩm gần đây</h2>
-                        <a href="#" class="btn">Xem tất cả</a>
-                    </div>
 
-                    <table>
-                        <thead>
-                            <tr>
-                                <td>Tên loại</td>
-                                <td>Cập nhật</td>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                       
-                            
-							<c:forEach var="item" items="${product_categorys}">
-							  <tr>
-                                <td>${item.nameCategory}</td>
-								<td>
-									<form action="ProductCategory" method="post">
-										
-										<input type="hidden" name="action" value="delete">
-										<input type="hidden" name="namecate" value="<c:out value='${item.nameCategory}'/>">
-										<input type="submit" value="Xóa" class="status delivered" style="background: red">
-									</form>
-								</td>
-								
-                                
-                            </tr>
-							</c:forEach>
-                      
-                        </tbody>
-                    </table>
-                </div>
-        </div>
         
     </div>
 

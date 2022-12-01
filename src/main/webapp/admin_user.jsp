@@ -80,7 +80,7 @@
 										
 										<input type="hidden" name="action" value="delete">
 										<input type="hidden" name="iduser" value="${item.userId }">
-										<input type="submit" value="Xóa" class="status delivered" style="background: red">
+										<input type="submit" value="Xóa" class="status delivered" style="background: red;width: 75px;height: 34px;">
 									</form>
                                 </td>
 
@@ -89,7 +89,7 @@
 										
 										<input type="hidden" name="action" value="update">
 										
-										<input type="submit" value="Chỉnh sửa" class="status delivered">
+										<input type="submit" value="Chỉnh sửa" style="width: 105px;height: 34px;" class="status delivered">
 									</form>
 								</td>
 								

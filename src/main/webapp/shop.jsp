@@ -53,7 +53,7 @@
                 <div class="d-flex">
                   <div class="dropdown mr-1 ml-md-auto">
                     <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Gần đây
+                      Độ tuổi
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
                       <a class="dropdown-item" href="./Product?action=nguoilon">Người lớn</a>
@@ -64,11 +64,7 @@
                 </div>
               </div>
             </div>
-            <div class="row mb-5">
-
-              
-              <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-              
+            <div class="row mb-5">              
               
  			<c:forEach var="item" items="${products}">
               <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up" style="height:480px ">
@@ -89,9 +85,7 @@
                 </div>
               </div>
 			</c:forEach>
-
-
-	
+			
             </div>
             <div class="row" data-aos="fade-up">
               <div class="col-md-12 text-center">
@@ -164,7 +158,6 @@
             </div>
           </div>
         </div>
-
 
         
       </div>

@@ -69,6 +69,7 @@
                                 <td>Tên loại</td>
                                 
                                 <td>Cập nhật</td>
+                                <td>Xóa</td>
                             </tr>
                         </thead>
 
@@ -79,15 +80,22 @@
 							  <tr>
                                 <td>${item.nameCategory}</td>
 								<td>
+									<form action="ProductCategory" method="post">			
+										<input type="hidden" name="action" value="loaddataforwordupdate">							
+										<input type="hidden" name="idcate" value="<c:out value='${item.pd_cateId}'/>">
+										<input type="hidden" name="namecate" value="<c:out value='${item.nameCategory}'/>">
+										<input type="submit" value="Chỉnh sửa" class="status delivered" style="background: #8de02c;width: 100px;height: 30px;">
+									</form>
+								</td>
+								<td>
 									<form action="ProductCategory" method="post">
-										
 										<input type="hidden" name="action" value="delete">
+										<input type="hidden" name="idcate" value="<c:out value='${item.pd_cateId}'/>">
 										<input type="hidden" name="namecate" value="<c:out value='${item.nameCategory}'/>">
 										<input type="submit" value="Xóa" class="status delivered" style="background: red;width: 100px;height: 30px;">
 									</form>
 								</td>
-								
-                                
+     
                             </tr>
 							</c:forEach>
                       

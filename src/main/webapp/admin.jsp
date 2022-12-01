@@ -42,52 +42,7 @@
             </div>
 
             <!-- ======================= Cards ================== -->
-            <div class="cardBox">
-                <div class="card">
-                    <div>
-                        <div class="numbers">1,504</div>
-                        <div class="cardName">Daily</div>
-                    </div>
-
-                    <div class="iconBx">
-                        <ion-icon name="eye-outline"></ion-icon>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div>
-                        <div class="numbers">80</div>
-                        <div class="cardName">Sales</div>
-                    </div>
-
-                    <div class="iconBx">
-                        <ion-icon name="cart-outline"></ion-icon>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div>
-                        <div class="numbers">284</div>
-                        <div class="cardName">Comments</div>
-                    </div>
-
-                    <div class="iconBx">
-                        <ion-icon name="chatbubbles-outline"></ion-icon>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div>
-                        <div class="numbers">$7,842</div>
-                        <div class="cardName">Earning</div>
-                    </div>
-
-                    <div class="iconBx">
-                        <ion-icon name="cash-outline"></ion-icon>
-                    </div>
-                </div>
-            </div>
-
+			<h2 style="text-align: center;font-size: 40px;margin-top: 40px;color: var(--blue)">Nhập hàng</h2>
             <!-- ================ Order Details List ================= -->
              <div class="details"  style="display: block;">
                 <div class="recentOrders" style="display: block;">
@@ -129,11 +84,11 @@
 										
 										<input type="hidden" name="action" value="importproduct">
 										<input type="hidden" name="idimportproduct" value="${item.productId }">
+										<input type="hidden" name="nameimportproduct" value="${item.nameProduct }">
 										<input type="submit" value="Nhập thêm sản phẩm" class="status delivered" style="border: none;height: 49px;padding: 10px;">
 									</form>
 								</td>
-								
-                                
+ 
                             </tr>
 							</c:forEach>
 

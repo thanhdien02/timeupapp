@@ -1,5 +1,4 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -9,15 +8,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đơn hàng</title>
+    <title>Cập nhật loại sản phẩm</title>
     <!-- ======= Styles ====== -->
   <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
-  <link rel="stylesheet" href="assets-admin/css/style_product_order.css">
+  <link rel="stylesheet" href="./assets-admin/css/style_product_category.css">
 </head>
 
 <body>
     <!-- =============== Navigation ================ -->
     <div class="container">
+
     <!-- Header -->
     <jsp:include page="admin_menu.jsp" /> 
         
@@ -41,51 +41,60 @@
 			
 				
 			<div class="addproduct_catedory"> <!-- đặt nó ở trong form rồi thêm loại sản phẩm cho nó mà tôi -->
-				<h2 style="text-align: center;margin-top: 50px;font-size: 40px;color: var(--blue)">Danh sách đơn hàng</h2>
-				 	
+				<h2>Cập nhật loại sản phẩm</h2>
+				 
+				<form action="ProductCategory" method="post">
+					<input type="hidden" name="action" value="update">
+					<input type="hidden" name="idcate" value="${idcate }">
+					<input type="text" required placeholder="Tên loại sản phẩm" value="${namecategory }" class="name_cate" name="namecategory">
+					<input type="submit" value="Chỉnh sửa loại sản phẩm" class="submit_cate">
+				</form>
 			
 			</div>
 			
 			
 			<!-- List product category -->
 			 <div class="details">
-                <div class="recentOrders" style="display: block;"	>
+                <div class="recentOrders" style="display: block;">
                     <div class="cardHeader">
-                        <h2>Các đơn hàng gần đây</h2>
+                        <h2>Các loại sản phẩm gần đây ${idcate } tên của nó</h2>
                         <a href="#" class="btn">Xem tất cả</a>
                     </div>
 
                     <table>
                         <thead>
                             <tr>
-                                <td>Tên người đặt</td>       
-                                <td>Ngày đặt hàng</td>
-                                <td>Tổng đơn hàng</td>
-                                <td>Chi tiết đơn hàng</td>
+                                <td>Tên loại</td>
+                                
+                                <td>Cập nhật</td>
+                                <td>Xóa</td>
                             </tr>
                         </thead>
 
                         <tbody>
- 
-							<c:forEach var="item" items="${orders}">
+                       
+                            
+							<c:forEach var="item" items="${product_categorys}">
 							  <tr>
-                                <td>${item.user.fullName}</td>
-								<td>${item.dateShip}</td>
-								
-								
+                                <td>${item.nameCategory}</td>
 								<td>
-									<fmt:setLocale value = "vi_VN"/>
-	                    			<fmt:formatNumber value = "${item.priceSum}" type = "currency"/>
-								</td>
-								<td>
-									<form action="OrderdetailServlet" method="post">
+									<form action="ProductCategory" method="post">
 										
-										<input type="hidden" name="action" value="admin">
-										<input type="hidden" name="idorder" value="${item.orderId }">
-										<input type="submit" style="border: none;width: 120px;height: 35px;" value="Chi tiết" class="status delivered">
+										<input type="hidden" name="action" value="update">
+										<input type="hidden" name="namecate" value="<c:out value='${item.nameCategory}'/>">
+										<input type="submit" value="Chỉnh sửa" class="status delivered" style="background: red;width: 100px;height: 30px;">
 									</form>
-								
 								</td>
+								<td>
+									<form action="ProductCategory" method="post">
+										
+										<input type="hidden" name="action" value="delete">
+										<input type="hidden" name="idcate" value="<c:out value='${item.pd_cateId}'/>">
+										<input type="hidden" name="namecate" value="<c:out value='${item.nameCategory}'/>">
+										<input type="submit" value="Xóa" class="status delivered" style="background: #8de02c;width: 100px;height: 30px;">
+									</form>
+								</td>
+     
                             </tr>
 							</c:forEach>
                       

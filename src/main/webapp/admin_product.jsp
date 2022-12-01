@@ -42,6 +42,7 @@
             </div>
 
             <!-- ======================= Cards ================== -->
+           	<h2 style="text-align: center;font-size: 40px;margin-top: 40px;color: var(--blue);">Quản lí sản phẩm</h2>
             <div class="cardBox">
                 <form action="ProductAdmin" method="post">
 					<input type="hidden" name="action" value="load">
@@ -51,16 +52,7 @@
 
                
 
-                <div class="card">
-                    <div>
-                        <div class="numbers">$7,842</div>
-                        <div class="cardName">Tổng danh thu</div>
-                    </div>
 
-                    <div class="iconBx">
-                        <ion-icon name="cash-outline"></ion-icon>
-                    </div>
-                </div>
             </div>
 
             <!-- ================ Order Details List ================= -->

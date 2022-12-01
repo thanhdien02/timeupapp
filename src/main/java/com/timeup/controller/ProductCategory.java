@@ -109,9 +109,49 @@ public class ProductCategory extends HttpServlet {
 		
 		// Kiểm tra loại sản phẩm thêm vào không được trùng nhau.
 		
+		if(action.equals("loaddataforwordupdate"))
+		{
+			
+			String idcate = request.getParameter("idcate");
+			String namecategory = request.getParameter("namecate");
+			
+			request.setAttribute("idcate", idcate);
+			request.setAttribute("namecategory", namecategory);
+			
+			
+			url = "/admin_category_update.jsp";
+			getServletContext()
+	        .getRequestDispatcher(url)
+	        .forward(request, response);
+			
+		}
 		
-		// Alt + D di chuyển lên xuống. 
-		// 
+		
+		if(action.equals("update"))
+		{
+			String idcate = request.getParameter("idcate");
+			String namecategory = request.getParameter("namecategory");
+			Long id = Long.parseLong(idcate);
+			
+			Product_category product_cate = Product_categoryDAO.selectById(id);
+			if(product_cate != null)
+			{
+				// Cập nhật lại tên của nó 
+				product_cate.setNameCategory(namecategory);
+				
+				
+				// Cập nhật
+				Product_categoryDAO product_cateDAO = new Product_categoryDAO();
+				product_cateDAO.update(product_cate);
+				
+				
+			}
+			
+			List<Product_category> product_categorys1 = Product_categoryDAO.selectProducts_categorys();
+			
+			request.setAttribute("product_categorys", product_categorys1);
+			url = "/admin_product_category.jsp";
+		}
 		getServletContext()
         .getRequestDispatcher(url)
         .forward(request, response);

@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="./assets-cart/css/aos.css">
 
     <link rel="stylesheet" href="./assets-cart/css/style.css">
-    
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
   </head>
   <body>
   

@@ -99,16 +99,16 @@
 										
 										<input type="hidden" name="action" value="delete">
 										<input type="hidden" name="idprovider" value="${item.providerId }">
-										<input type="submit" value="Xóa" class="status delivered" style="background: red">
+										<input type="submit" value="Xóa" class="status delivered" style="background: red;width: 95px;height: 35px;">
 									</form>
                                 </td>
 
 								<td>
 									<form action="ProviderServlet" method="post">
 										
-										<input type="hidden" name="action" value="update">
-										
-										<input type="submit" value="Chỉnh sửa" class="status delivered">
+										<input type="hidden" name="action" value="loaddataforwardupdate">
+										<input type="hidden" name="idprovider" value="${item.providerId }">
+										<input type="submit" style="width: 115px;height: 35px;" value="Chỉnh sửa" class="status delivered">
 									</form>
 								</td>
 								

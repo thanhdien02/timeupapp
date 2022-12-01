@@ -46,4 +46,19 @@ public class Product_categoryDAO  extends AbstractDAO<Product_category> {
             em.close();
         }
     }
+    public static Product_category selectById(Long pd_cateId) {
+        EntityManager em = DBUtil.getEmFactory();
+        String qString = "SELECT u FROM Product_category u " +
+                "WHERE u.pd_cateId = :pd_cateId";
+        TypedQuery<Product_category> q = em.createQuery(qString, Product_category.class);
+        q.setParameter("pd_cateId", pd_cateId);
+        try {
+        	Product_category product_category = q.getSingleResult();
+            return product_category;
+        } catch (NoResultException e) {
+            return null;
+        } finally {
+            em.close();
+        }
+    }
 }

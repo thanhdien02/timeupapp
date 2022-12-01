@@ -84,11 +84,56 @@ public class ProviderServlet extends HttpServlet {
 					request.setAttribute("providers", providers);
 				}
 			}
+		}
+		
+		// Đỗ dữ liệu hiện có vào trang cập nhập.
+		if(action.equals("loaddataforwardupdate"))
+		{
+			String idprovider = request.getParameter("idprovider");
+			Long id = Long.parseLong(idprovider);
 			
+			Provider provider = ProviderDAO.selectById(id);
+			if(provider != null)
+			{				
+				request.setAttribute("provider", provider);
+				url = "/admin_provider_update.jsp";
+			}
 			
 		}
 		
+		// Cập nhật provider theo yêu cầu
+		if(action.equals("update"))
+		{
+			String idprovider = request.getParameter("idprovider");
+			Long id = Long.parseLong(idprovider);
+			// Lấy thông tin xuống để cập nhật
+			String namepvd = request.getParameter("nameprovider");
+			String numphone = request.getParameter("numberphone");
+			
+			ProviderDAO providerdao = new ProviderDAO();
+			Provider provider = ProviderDAO.selectById(id);
+			
+			
+			if(provider != null)
+			{
+				provider.setNameProvider(namepvd);
+				provider.setNumberPhone(numphone);
+				
+				providerdao.update(provider);
+				
+				
+				// Load lại dữ liệu
+				List<Provider> providers = ProviderDAO.selectProviders();
+				
+				if(providers != null)
+				{
+					request.setAttribute("providers", providers);
+				}
+				url = "/admin_provider.jsp";
+			}
+		}
 		
+
 		
 		getServletContext()
         .getRequestDispatcher(url)

@@ -57,6 +57,16 @@ public class Import_Product implements Serializable{
 	// Date nhập
 
 	private LocalDateTime date_import;
+	
+	private Long numberImport;
+
+	public Long getNumberImport() {
+		return numberImport;
+	}
+
+	public void setNumberImport(Long numberImport) {
+		this.numberImport = numberImport;
+	}
 
 	public LocalDateTime getDate_import() {
 		return date_import;
