@@ -46,7 +46,11 @@ public class ProductAdmin extends HttpServlet {
 		
 		String action = "";
 		action =request.getParameter("action");
-			
+		
+		if(action.equals("fwadmin"))
+		{
+			doGet(request, response);
+		}
 
 		if(action.equals("load"))
 		{

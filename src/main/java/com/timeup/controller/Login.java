@@ -11,8 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.timeup.business.Admin;
 import com.timeup.business.Product;
 import com.timeup.business.User;
+import com.timeup.dao.AdminDAO;
 import com.timeup.dao.ProductDAO;
 import com.timeup.dao.UserDAO;
 
@@ -58,52 +60,69 @@ public class Login extends HttpServlet {
 		
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
+		String loginwith = request.getParameter("loginwith");
 		
-		List<User> users =  UserDAO.selectUsers();
-		
-		if(users == null)
+		if(loginwith.equals("user"))
 		{
-			url = "/register.jsp"; // Mật khẩu sai
-
-			getServletContext()
-	        .getRequestDispatcher(url)
-	        .forward(request, response);
-		}
-		for (User user : users) {
-			if(user.getNameLogin().equals(username) && user.getPassword().equals(password))
+			List<User> users =  UserDAO.selectUsers();
+			
+			if(users == null)
 			{
-				// Add cookie cho tài khoản và mật khẩu
-//				HttpSession session = request.getSession();
-//				
-//				session.setAttribute("username", username);
-//				session.setAttribute("password", password);
-//				
-				
-		        Cookie userN = new Cookie("username", username);
+				url = "/register.jsp"; // Mật khẩu sai
 
-		        userN.setMaxAge(60 * 60 * 24 * 365 * 3); // set age to 3 years
-		        userN.setPath("/");                      // allow entire app to access it
-		        response.addCookie(userN);
-				
-		        Cookie passW = new Cookie("password", password);
-		        passW.setMaxAge(60 * 60 * 24 * 365 * 3); // set age to 3 years
-		        passW.setPath("/");  
-		        // allow entire app to access it
-		        response.addCookie(passW);
-		        
-		        
-				url = "/HomeServlet";
-	
 				getServletContext()
 		        .getRequestDispatcher(url)
 		        .forward(request, response);
 			}
+			for (User user : users) {
+				if(user.getNameLogin().equals(username) && user.getPassword().equals(password))
+				{
+				
+					
+			        Cookie userN = new Cookie("username", username);
 
+			        userN.setMaxAge(60 * 60 * 24 * 365 * 3); // set age to 3 years
+			        userN.setPath("/");                      // allow entire app to access it
+			        response.addCookie(userN);
+					
+			        Cookie passW = new Cookie("password", password);
+			        passW.setMaxAge(60 * 60 * 24 * 365 * 3); // set age to 3 years
+			        passW.setPath("/");  
+			        // allow entire app to access it
+			        response.addCookie(passW);
+			        
+			        
+					url = "/HomeServlet";
+		
+					getServletContext()
+			        .getRequestDispatcher(url)
+			        .forward(request, response);
+				}
+
+			}
+			
+			String kiemtra = "sai";
+			request.setAttribute("kiemtralogin", kiemtra);
+			url = "/login.jsp"; // Mật khẩu sai
 		}
 		
-		String kiemtra = "sai";
-		request.setAttribute("kiemtralogin", kiemtra);
-		url = "/login.jsp"; // Mật khẩu sai
+		
+		if(loginwith.equals("admin"))
+		{
+			Admin admin = AdminDAO.selectByName(username, password);
+			
+			// Nếu khác null là tài khoản và mật khẩu sai hoặc chưa tồn tại
+			if(admin != null)
+			{
+				url = "/Product";
+				getServletContext()
+		        .getRequestDispatcher(url)
+		        .forward(request, response);
+			}
+			
+			url = "/login.jsp"; // Mật khẩu sai
+		}
+		
 
 		getServletContext()
         .getRequestDispatcher(url)

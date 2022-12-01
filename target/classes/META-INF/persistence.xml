@@ -26,7 +26,7 @@
 			<property name="javax.persistence.jdbc.user" value="bb85f98cfd4903" />
 			<property name="javax.persistence.jdbc.password" value="41be6844" />
 			<property name="javax.persistence.schema-generation.database.action" 
-                value="none"/>			
+                value="update"/>			
 		</properties>
     </persistence-unit>
 </persistence>

@@ -101,9 +101,18 @@ public class Product extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
-		String url = "/CartServlet";
-
-		getServletContext()	
+		request.setCharacterEncoding("UTF-8");
+		String url = "/admin_product.jsp";
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		List<com.timeup.business.Product> products = ProductDAO.selectProducts();
+		
+		if(products != null)
+		{
+			request.setAttribute("products", products);
+		}
+		
+		getServletContext()
         .getRequestDispatcher(url)
         .forward(request, response); // Chuyen trang 
 	}

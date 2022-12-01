@@ -41,11 +41,13 @@
 				
 			<div class="addproduct_catedory" style="text-align: center;"> <!-- đặt nó ở trong form rồi thêm loại sản phẩm cho nó mà tôi -->
 				<h2 style="font-size: 45px;margin: 60px 0;font-weight: 600;color: var(--blue);">Nhập thêm hàng vào kho</h2>
-				 
+				 <h2 style="margin-bottom: 24px;">Tên sản phẩm: ${product.nameProduct }</h2>
 				<form action="ProductCategory" method="post">
-					<input type="hidden" name="action" value="add">
-					<input type="text" required placeholder="Tên loại sản phẩm" class="name_cate" name="namecategory">
-					<input type="submit" value="Thêm loại sản phẩm" class="submit_cate">
+				
+					<input type="hidden" name="idproduct" value="${product.productId } ">
+					<input type="hidden" name="action" value="updatenumberproduct">
+					<input type="text" required placeholder="Số lượng nhập vào" class="name_cate" name="namecategory" style="height: 40px;border-radius: 40px;padding: 5px 20px;padding-left: 20px;padding-left: 35px;font-size: 18px;outline: none;border: 1px solid var(--black2);">
+					<input type="submit" value="Nhập vào kho" class="submit_cate" style="height: 40px;border-radius: 40px;padding: 5px 20px;padding-left: 20px;padding-left: 35px;font-size: 18px;outline: none;background: #2a2185;border: 1px solid var(--black2);color: white;">
 				</form>
 			
 			</div>

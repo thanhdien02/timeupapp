@@ -25,9 +25,16 @@
             <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     
 		    <c:if test="${kiemtralogin == 'sai'}">
-		        <p style="color:red;margin-top:-20px;">Tài khoản hoặc mật khẩu không chính xác</p>
+					<p style="color:red;margin-top:-35px;margin-bottom: 35px;">Tài khoản hoặc mật khẩu không chính xác</p>
 		    </c:if> 
+		    
             <form class="login-form" autocomplete="off" action="Login" method="post">
+            	<div style="/*! flex: 1; */margin-top: -22px;margin-bottom: 28px;margin-left: 41px;">
+					<label >Quản lí</label>
+					<input type="radio" id="html" required name="loginwith" value="admin" style="scale: 2.0;width: 80px;">
+					<label >Người dùng</label>
+					<input type="radio" id="css" required name="loginwith" value="user" style="scale: 2.0;width: 80px;">
+				</div>
                 <div class="login-form-content">
                     <div class="form-item">
                         <label for="emailForm">Tài khoản<c:out value="${iditem}"></c:out></label>

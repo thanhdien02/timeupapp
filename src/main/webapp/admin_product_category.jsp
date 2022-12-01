@@ -83,7 +83,7 @@
 										
 										<input type="hidden" name="action" value="delete">
 										<input type="hidden" name="namecate" value="<c:out value='${item.nameCategory}'/>">
-										<input type="submit" value="Xóa" class="status delivered" style="background: red">
+										<input type="submit" value="Xóa" class="status delivered" style="background: red;width: 100px;height: 30px;">
 									</form>
 								</td>
 								
