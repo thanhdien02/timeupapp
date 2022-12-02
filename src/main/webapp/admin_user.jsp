@@ -66,9 +66,7 @@
                             </tr>
                         </thead>
 
-                        <tbody>
-                       
-                            
+                        <tbody> 
 							<c:forEach var="item" items="${users}">
 							  <tr>
                                 <td>${item.nameLogin}</td>
@@ -86,14 +84,11 @@
 
 								<td>
 									<form action="UserServlet" method="post">
-										
-										<input type="hidden" name="action" value="update">
-										
+										<input type="hidden" name="iduser" value="${item.userId }">
+										<input type="hidden" name="action" value="loaddateforwardupdate">
 										<input type="submit" value="Chỉnh sửa" style="width: 105px;height: 34px;" class="status delivered">
 									</form>
-								</td>
-								
-                                
+								</td> 
                             </tr>
 							</c:forEach>
                       

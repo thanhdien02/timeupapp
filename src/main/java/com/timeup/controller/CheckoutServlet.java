@@ -192,9 +192,34 @@ public class CheckoutServlet extends HttpServlet {
 			address.setUser(user);
 			
 			AddressDAO addressdao = new AddressDAO();
-			addressdao.insert(address);
-
 			
+			
+			// Kiểm tra adress có trong danh sách chưa
+			int check = 0;
+			List<Address> addresss = AddressDAO.selectAddresss();
+			if(addresss != null)
+			{
+				for (Address address2 : addresss) {
+					if(address2.getUser().getUserId() == user.getUserId())
+					{
+						for (Address ad : user.getAddress()) {
+							if(ad.getCiTy().equals(address.getCiTy()) && ad.getDicstrict().equals(address.getDicstrict())
+									&& ad.getWard().equals(address.getWard()) 
+									&& ad.getNumber_Home().equals(address.getNumber_Home()))
+							{
+								check = 1;
+							}
+							
+						}
+					}
+				}
+			}
+
+			if(check == 0)
+			{
+				addressdao.insert(address);
+			}
+
 			// Thêm order
 
 			// thêm vào order
@@ -208,7 +233,6 @@ public class CheckoutServlet extends HttpServlet {
 			order.setDateShip(LocalDateTime.now());
 			order.setUser(user);
 			orderdao.insert(order);
-			
 			
 			
 			

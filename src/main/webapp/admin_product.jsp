@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Quản lí sản phẩm</title>
     <!-- ======= Styles ====== -->
   <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
@@ -70,6 +70,7 @@
                                 <td>Giá</td>
                                 <td>Số lượng còn</td>
                                 <td>Loại sản phẩm</td>
+                                <td>Chỉnh sửa</td>
                             </tr>
                         </thead>
 
@@ -91,11 +92,16 @@
 
 								</td>
 								
-                                
+                                <td>
+									<form action="ProductAdmin" method="post">
+										<input type="hidden" name="idproduct" value="${item.productId }">
+										<input type="hidden" name="action" value="loaddateforwardupdate">
+										<input type="submit" value="Chỉnh sửa" style="width: 115px;height: 40px;border: none;" class="status delivered">
+									</form>
+								</td> 
                             </tr>
 							</c:forEach>
-
-                      
+   
                         </tbody>
                     </table>
                 </div>

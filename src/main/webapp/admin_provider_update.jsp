@@ -53,8 +53,6 @@
 							<label style="flex: 0.4;align-self: center;font-size: 23px;">Số điện thoại</label>
 							<input type="text" name="numberphone" style="flex: 1;" required placeholder="Số điện thoại" value="${provider.numberPhone }" class="name_cate" >
 						</div>
-
-
 					</div>
 					<input type="hidden" name="action" value="update">
 					<input type="hidden" name="idprovider" value="${provider.providerId }">

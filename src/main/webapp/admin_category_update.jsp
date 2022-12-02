@@ -57,7 +57,7 @@
 			 <div class="details">
                 <div class="recentOrders" style="display: block;">
                     <div class="cardHeader">
-                        <h2>Các loại sản phẩm gần đây ${idcate } tên của nó</h2>
+                        <h2>Các loại sản phẩm gần đây tên của nó</h2>
                         <a href="#" class="btn">Xem tất cả</a>
                     </div>
 

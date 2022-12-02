@@ -63,6 +63,46 @@ public class UserServlet extends HttpServlet {
 			
 			
 		}
+		
+		if(action.equals("loaddateforwardupdate"))
+		{
+			String iduser = request.getParameter("iduser");
+			Long id = Long.parseLong(iduser);
+			
+			User user = UserDAO.selectById(id);
+			
+			if(user != null)
+			{
+				request.setAttribute("user", user);
+			}
+			url = "/admin_user_update.jsp";
+		}
+		
+		if(action.equals("update"))
+		{
+			String iduser = request.getParameter("iduser");
+			String fullname = request.getParameter("fulname");
+			String numberphone = request.getParameter("numberphone");
+			String email = request.getParameter("email");
+			Long id = Long.parseLong(iduser);
+			
+			User user = UserDAO.selectById(id);
+			
+			// Cập nhật lại
+			user.setNumberPhone(numberphone);
+			user.setEmail(email);
+			user.setFullName(fullname);
+			
+			UserDAO.update(user);
+			
+			List<User> users =  UserDAO.selectUsers();
+			if(users != null)
+			{
+				request.setAttribute("users", users);
+			}
+			url = "/admin_user.jsp";
+			
+		}
 		getServletContext()
         .getRequestDispatcher(url)
         .forward(request, response); 

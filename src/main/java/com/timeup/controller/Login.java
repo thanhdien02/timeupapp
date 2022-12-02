@@ -114,6 +114,19 @@ public class Login extends HttpServlet {
 			// Nếu khác null là tài khoản và mật khẩu sai hoặc chưa tồn tại
 			if(admin != null)
 			{
+				
+		        Cookie userN = new Cookie("username", username);
+
+		        userN.setMaxAge(60 * 60 * 24 * 365 * 3); // set age to 3 years
+		        userN.setPath("/");                      // allow entire app to access it
+		        response.addCookie(userN);
+				
+		        Cookie passW = new Cookie("password", password);
+		        passW.setMaxAge(60 * 60 * 24 * 365 * 3); // set age to 3 years
+		        passW.setPath("/");  
+		        // allow entire app to access it
+		        response.addCookie(passW);
+				
 				url = "/Product";
 				getServletContext()
 		        .getRequestDispatcher(url)

@@ -86,7 +86,7 @@
                 </li>
 
                 <li>
-                    <a href="./login.jsp">
+                    <a href="Login">
                         <span class="icon">
                             <ion-icon name="log-out-outline"></ion-icon>
                         </span>

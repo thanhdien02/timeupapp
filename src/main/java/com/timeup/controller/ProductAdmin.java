@@ -44,8 +44,7 @@ public class ProductAdmin extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String url = "/admin.jsp";
 		
-		String action = "";
-		action =request.getParameter("action");
+		String action =request.getParameter("action");
 		
 		if(action.equals("fwadmin"))
 		{
@@ -128,12 +127,49 @@ public class ProductAdmin extends HttpServlet {
 			url = "/admin_product_image.jsp";
 		
 		}
+		
+		if(action.equals("loaddateforwardupdate"))
+		{
+			
+			String idproduct = request.getParameter("idproduct");
+			Long id = Long.parseLong(idproduct);
+			
+			Product product = ProductDAO.selectById(id);
+			if(product != null)
+			{
+				request.setAttribute("product", product);
+			}
+			url = "/admin_product_update.jsp";
+			
+		}
+		
+		if(action.equals("updateproduct"))
+		{
+			
+			String idproduct = request.getParameter("idproduct");
+			Long id = Long.parseLong(idproduct);
+			
+			Product product = ProductDAO.selectById(id);
+			
+			// Lấy dữ liệu xuống.
+			String namepd = request.getParameter("nameproduct");
+			Long price = Long.parseLong(request.getParameter("priceproduct"));
+			
+			// Loại sản phẩm
+			
+			
+			// Thông số 
+			String color = request.getParameter("colorproduct");
+			String origin = request.getParameter("originproduct");
+			String usetime = request.getParameter("usetimeproduct");
+			String description = request.getParameter("desciptionproduct");
+			String sizegreen = request.getParameter("sizegreen");
+			String weight = request.getParameter("weightproduct");
+		}
 //		
 		
 		getServletContext()
         .getRequestDispatcher(url)
         .forward(request, response); // Chuyen trang 
 	}
-
-
 }

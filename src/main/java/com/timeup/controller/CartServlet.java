@@ -28,7 +28,7 @@ public class CartServlet extends HttpServlet {
        
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		request.setCharacterEncoding("UTF-8");
 		String url = "/cart.jsp";
 		Cookie []arr = request.getCookies();
 		List<Product> products = new ArrayList<>();
