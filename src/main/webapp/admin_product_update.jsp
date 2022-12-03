@@ -98,6 +98,8 @@
 					
 					<div class="submit">
 						<input type="hidden" value="updateproduct" name="action">
+						<input type="hidden" value="${product.pd_specification.pd_specificationId }" name="idproductspecifi">
+						<input type="hidden" value="${product.pd_category.pd_cateId }" name="idproductcategory">
 						<input type="hidden" value="${product.productId }" name="idproduct">
 						<input type="submit" value="Chỉnh sửa " class="submit_cate">
 					

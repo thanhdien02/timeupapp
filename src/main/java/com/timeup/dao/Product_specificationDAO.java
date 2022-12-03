@@ -4,6 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 
+import com.timeup.business.Product;
 import com.timeup.business.Product_category;
 import com.timeup.business.Product_specification;
 import com.timeup.data.DBUtil;
@@ -32,4 +33,19 @@ public class Product_specificationDAO extends AbstractDAO<Product_specification>
 	            em.close();
 	        }
 	 }
+	    public static Product_specification selectById(Long pd_specificationId) {
+	        EntityManager em = DBUtil.getEmFactory();
+	        String qString = "SELECT u FROM Product_specification u " +
+	                "WHERE u.pd_specificationId = :pd_specificationId";
+	        TypedQuery<Product_specification> q = em.createQuery(qString, Product_specification.class);
+	        q.setParameter("pd_specificationId", pd_specificationId);
+	        try {
+	        	Product_specification productspecifi = q.getSingleResult();
+	            return productspecifi;
+	        } catch (NoResultException e) {
+	            return null;
+	        } finally {
+	            em.close();
+	        }
+	    }
 }

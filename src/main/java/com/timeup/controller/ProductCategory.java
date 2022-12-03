@@ -120,9 +120,7 @@ public class ProductCategory extends HttpServlet {
 			
 			
 			url = "/admin_category_update.jsp";
-			getServletContext()
-	        .getRequestDispatcher(url)
-	        .forward(request, response);
+
 			
 		}
 		

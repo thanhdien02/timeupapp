@@ -3,7 +3,6 @@ package com.timeup.business;
 import java.io.Serializable;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -11,13 +10,22 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.OneToOne;
-import javax.persistence.Table;
+
 @Entity
-public class Product_specification {
+public class Product_specification implements Serializable {
+	
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
 	private Long pd_specificationId;
 	
+	public Long getPd_specificationId() {
+		return pd_specificationId;
+	}
+
+	public void setPd_specificationId(Long pd_specificationId) {
+		this.pd_specificationId = pd_specificationId;
+	}
+
 	public String getDesciption() {
 		return desciption;
 	}
@@ -26,13 +34,7 @@ public class Product_specification {
 		this.desciption = desciption;
 	}
 
-	public Long getPd_specId() {
-		return pd_specificationId;
-	}
 
-	public void setPd_specId(Long pd_specificationId) {
-		this.pd_specificationId = pd_specificationId;
-	}
 
 	public String getColor() {
 		return color;

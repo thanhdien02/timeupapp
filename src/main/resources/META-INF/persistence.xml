@@ -2,11 +2,13 @@
 <persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
   http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd" version="2.1">
-    <persistence-unit name="timeupWeb">
+    <persistence-unit name="timeupWeb" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         
-        <!-- 
-        <properties>
+
+		
+		<!-- 
+		<properties>
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
             <property name="javax.persistence.schema-generation.database.action" value="none"/>
             <property name="javax.persistence.jdbc.url"
@@ -17,9 +19,10 @@
             <property name="hibernate.format_sql" value="false" />
             <property name="hibernate.use_sql_comments" value="true" />
         </properties>
-        
-         -->
-        	<properties>
+		 -->
+		   
+          
+        <properties>
 			
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://us-cdbr-east-06.cleardb.net/heroku_18e4432fbc96758?reconnect=true;characterEncoding=UTF-8" />
@@ -28,8 +31,11 @@
 			<property name="javax.persistence.schema-generation.database.action" 
                 value="none"/>			
 		</properties>
+          
+
+
+
+
+
     </persistence-unit>
 </persistence>
-
-
-

@@ -117,9 +117,7 @@ public class ImportProductServlet extends HttpServlet {
 				}
 				
 				url = "/admin.jsp";
-				getServletContext()
-		        .getRequestDispatcher(url)
-		        .forward(request, response); // Chuyen trang 
+
 			}
 		}
 

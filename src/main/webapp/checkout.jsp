@@ -63,7 +63,7 @@
 	              <div class="form-group row">
 	                <div class="col-md-12">
 	                  <label for="c_address" class="text-black">Họ và Tên <span class="text-danger">*</span></label>
-	                  <input type="text" class="form-control" id="c_address" value="${user.fullName }" name="fullname" placeholder="Street address">
+	                  <input type="text" class="form-control" id="c_address" value="${user.fullName }" name="fullname" placeholder="Họ và Tên">
 	                </div>
 	                
 	              </div>

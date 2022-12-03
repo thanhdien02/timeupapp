@@ -146,27 +146,85 @@ public class ProductAdmin extends HttpServlet {
 		if(action.equals("updateproduct"))
 		{
 			
+			// Loại sản phẩm
+			String idcate = request.getParameter("idproductcategory");
+			Long idct = Long.parseLong(idcate);
+			
+			Product_category product_cate = Product_categoryDAO.selectById(idct);
+			
+			// Cập nhật loại sản phẩm
+			if(product_cate != null)
+			{
+				String namecate = request.getParameter("namecategory");
+				product_cate.setNameCategory(namecate);
+				
+				Product_categoryDAO pdcatedao = new Product_categoryDAO();
+				pdcatedao.update(product_cate);
+			}
+			
+			
+			// Cập nhật thông số kỹ thuật
+			
+			String idspecification = request.getParameter("idproductspecifi");
+			Long idspecifi = Long.parseLong(idspecification);
+			
+			Product_specification pdspecificationnew = Product_specificationDAO.selectById(idspecifi);
+			
+			if(pdspecificationnew != null)
+			{
+				
+				String color = request.getParameter("colorproduct");
+				String origin = request.getParameter("originproduct");
+				String usetime = request.getParameter("usetimeproduct");
+				String description = request.getParameter("desciptionproduct");
+				String sizegreen = request.getParameter("sizegreen");
+				String weight = request.getParameter("weightproduct");
+				
+				pdspecificationnew.setColor(color);
+				pdspecificationnew.setDesciption(description);
+				pdspecificationnew.setOrigin(origin);
+				pdspecificationnew.setUse_time(usetime);
+				pdspecificationnew.setWeight(weight);
+				pdspecificationnew.setSizeGreen(sizegreen);
+				
+				Product_specificationDAO pdspecifidao = new Product_specificationDAO();
+				
+				pdspecifidao.update(pdspecificationnew);
+				
+			}
+			
+			
+			// Cập nhật product
+
 			String idproduct = request.getParameter("idproduct");
 			Long id = Long.parseLong(idproduct);
 			
 			Product product = ProductDAO.selectById(id);
 			
-			// Lấy dữ liệu xuống.
-			String namepd = request.getParameter("nameproduct");
-			Long price = Long.parseLong(request.getParameter("priceproduct"));
+			if(product != null)
+			{
+				// Lấy dữ liệu xuống.
+				String namepd = request.getParameter("nameproduct");
+				Long price = Long.parseLong(request.getParameter("priceproduct"));
+				
+				product.setPrice(price);
+				product.setNameProduct(namepd);
+				
+				ProductDAO productdao = new ProductDAO();
+				productdao.update(product);
+			}
 			
-			// Loại sản phẩm
 			
+			//response.getWriter().append("Served at: ").append(request.getContextPath());
 			
-			// Thông số 
-			String color = request.getParameter("colorproduct");
-			String origin = request.getParameter("originproduct");
-			String usetime = request.getParameter("usetimeproduct");
-			String description = request.getParameter("desciptionproduct");
-			String sizegreen = request.getParameter("sizegreen");
-			String weight = request.getParameter("weightproduct");
-		}
-//		
+			List<Product> products = ProductDAO.selectProducts();
+			
+			if(products != null)
+			{
+				request.setAttribute("products", products);
+			}
+			url = "/admin_product.jsp";
+		}		
 		
 		getServletContext()
         .getRequestDispatcher(url)

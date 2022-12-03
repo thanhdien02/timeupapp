@@ -15,60 +15,50 @@ import com.timeup.business.Product_category;
 import com.timeup.dao.ProductDAO;
 import com.timeup.dao.Product_categoryDAO;
 
-@WebServlet("/ShopServlet")
-public class ShopServlet extends HttpServlet {
+/**
+ * Servlet implementation class ProductPageServlet
+ */
+@WebServlet("/ProductPageServlet")
+public class ProductPageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
+		
 		String url = "/shop.jsp";
 		
 		List<Product> products = ProductDAO.selectProducts();
+		//
+		int length = products.size();
 		
-
-		
-		if(products != null)
+		// Kiểm tr phân bao nhiêu trang 
+		int numberpage = length / 9;
+		if(length % 9 != 0)
 		{
-			// Lấy 9 sản phẩm load lên home mà thôi
-			
-			int length = products.size();
-			
-			// Kiểm tr phân bao nhiêu trang 
-			int numberpage = length / 9;
-			if(length % 9 != 0)
-			{
-				numberpage++;
-			}
-			request.setAttribute("end", numberpage);
-			
-			if(length > 9)
-			{
-				List<Product> productsnew = new ArrayList<Product>();
-				
-
-
-				
-					int i = 0;
-					for (Product product : products) {
-						
-						if(i == 9)
-						{
-							break;
-						}
-						productsnew.add(product);
-						i++;
-					}
-				
-
-
-				request.setAttribute("products", productsnew);
-			}
-			else 
-			{				
-				request.setAttribute("products", products);
-			}
+			numberpage++;
 		}
+		request.setAttribute("end", numberpage);
+		
+		//
+		List<Product> productsnew = new ArrayList<Product>();
+		String action = request.getParameter("action");
+		if(action.equals("page"))
+		{
+			int index = Integer.parseInt(request.getParameter("index"));
+			
+			int gan = (index  *9) - 9;
+			for(int j = gan; j < gan + 9; j++)
+			{
+				if(length > j)
+				{
+					productsnew.add(products.get(j));
+				}
+
+
+			}
+			request.setAttribute("products", productsnew);
+		}
+		
 		
 		List<Product_category> product_categorys = Product_categoryDAO.selectProducts_categorys();
 		if(product_categorys != null)
@@ -83,7 +73,7 @@ public class ShopServlet extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

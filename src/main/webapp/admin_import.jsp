@@ -56,7 +56,7 @@
 				
 					<input type="hidden" name="idproduct" value="${product.productId }">
 					<input type="hidden" name="action" value="updatenumberproduct">
-					<input type="text" required placeholder="Số lượng nhập vào" class="name_cate" name="numberadd" style="height: 40px;border-radius: 40px;padding: 5px 20px;padding-left: 20px;padding-left: 35px;font-size: 18px;outline: none;border: 1px solid var(--black2);">
+					<input type="text" required placeholder="Số lượng nhập vào" class="name_cate" name="numberadd" style="height: 40px;border-radius: 40px;padding: 5px 20px;padding-left: 20px;padding-left: 35px;font-size: 18px;outline: none;border: 1px solid var(--black2);width: 465px;">
 					<input type="submit" value="Nhập vào kho" class="submit_cate" style="height: 40px;border-radius: 40px;padding: 5px 20px;padding-left: 20px;padding-left: 35px;font-size: 18px;outline: none;background: #2a2185;border: 1px solid var(--black2);color: white;">
 			</form>
 			

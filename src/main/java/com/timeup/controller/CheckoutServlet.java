@@ -165,6 +165,7 @@ public class CheckoutServlet extends HttpServlet {
 			// Update user phone and full name
 			
 			UserDAO userdao = new UserDAO();
+			
 			User user = UserDAO.selectByUserName(username);
 			if(user != null)
 			{
@@ -263,37 +264,40 @@ public class CheckoutServlet extends HttpServlet {
 					Product product = ProductDAO.selectById(longid);
 					
 					if(product != null)
+					{
 						products.add(product);
+						OrderdetailDAO orderdetailDAO = new OrderdetailDAO();
+						Order_detail order_detail = new Order_detail();
+						order_detail.setPrice(product.getPrice());
+						order_detail.setProduct(product);
+						order_detail.setOrder(order);
+						
+						for(Cookie cookie: arr)
+						{
+							if(string.equals(cookie.getName()))
+							{
+								
+								// Xử lí để lấy và đưa số lượng sản phẩm lên trên đó. 
+								//storequatity.add(Integer.parseInt(string));
+								if(product != null)
+								{
+									// Lấy quantity trong cookie
+									Long quatity = Long.parseLong(cookie.getValue());
+									order_detail.setNumber(quatity);
+									break;
+								}
+								
+							}
+						}
+
+						orderdetailDAO.insert(order_detail);
+					}
 					
 					
 					// Thêm order detail
-					OrderdetailDAO orderdetailDAO = new OrderdetailDAO();
-					Order_detail order_detail = new Order_detail();
-					order_detail.setPrice(product.getPrice());
-					order_detail.setProduct(product);
-					order_detail.setOrder(order);
+					
 					// Lấy số lượng sản phẩm đặt từ cookie giỏ hàng
-					for(Cookie cookie: arr)
-					{
-						if(string.equals(cookie.getName()))
-						{
-							
-							// Xử lí để lấy và đưa số lượng sản phẩm lên trên đó. 
-							//storequatity.add(Integer.parseInt(string));
-							if(product != null)
-							{
-								// Lấy quantity trong cookie
-								Long quatity = Long.parseLong(cookie.getValue());
-								order_detail.setNumber(quatity);
-								break;
-							}
-							
-						}
-					}
-
-					orderdetailDAO.insert(order_detail);					
-					
-					
+	
 				}
 
 			}
