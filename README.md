@@ -1,7 +1,7 @@
 # timeupapp
 Technology
 - JSP/Servlet
-- MySQ
+- MySQL
 - JPA/Hibernate
 
 MVC provides Model-View-Controller architecture to develop flexible web applications
